@@ -5,6 +5,7 @@ import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { BsPersonLinesFill } from "react-icons/bs";
 import { useRouter } from "next/navigation";
+import { social } from "@/utils/Object";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -54,9 +55,9 @@ const Navbar = () => {
       <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
         <Link href="/#home">
           <Image
-            src={require("/public/assets/navLogo.png")}
+            src={require("/public/assets/logo.png")}
             alt="/"
-            width={70}
+            width={50}
             height={10}
           />
         </Link>
@@ -103,8 +104,8 @@ const Navbar = () => {
             <div className="flex w-full items-center justify-between">
               <Link href="/#home">
                 <Image
-                  src="/../assets/navLogo.png"
-                  width="87"
+                  src="/../assets/logo.png"
+                  width="60"
                   height="35"
                   alt="/"
                 />
@@ -151,11 +152,21 @@ const Navbar = () => {
               </Link>
             </ul>
             <div className="pt-40">
-              <p className="uppercase tracking-widest text-[#5651e5]">
+              <p className="uppercase tracking-widest text-[#53E767]">
                 Let's Connect
               </p>
               <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                {social.map(({ id, icon, url }) => (
+                  <a
+                    href={url}
+                    target="_blank"
+                    key={id}
+                    className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                  >
+                    {icon}
+                  </a>
+                ))}
+                {/* <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
                   <FaLinkedinIn />
                 </div>
                 <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
@@ -166,7 +177,7 @@ const Navbar = () => {
                 </div>
                 <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
                   <BsPersonLinesFill />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

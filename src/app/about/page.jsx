@@ -1,18 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { AiOutlineDownload } from "react-icons/ai";
 
 const About = () => {
-  const resume = "/public/assets/resume.pdf";
   return (
     <div id="about" className="w-full md:h-screen p-2 flex items-center py-16">
       <div className="max-w-[1240px] m-auto md:grid grid-cols-3 gap-8">
         <div className="col-span-2">
-          <p className="uppercase text-xl tracking-widest text-[#5651e5]">
+          <p className="uppercase text-xl tracking-widest text-[#53E767]">
             About
           </p>
           <h2 className="py-4">Who I Am</h2>
-          <p className="py-2 text-gray-600">//I'm not your normal developer</p>
+          <p className="py-2 text-gray-600">
+            {" //Transforming ideas into seamless web wonders"}
+          </p>
           <p className="py-2 text-gray-600">
             I enjoy creating things that live on the internet. I learned web
             development because I wanted to have the ability to create useful
@@ -24,18 +26,34 @@ const About = () => {
             something new, and web development provides me with the opportunity
             to do so constantly.
           </p>
-          <p className="py-2 text-gray-600 underline cursor-pointer">
-            Check out some of my latest proyects.
-          </p>
-          <Link href={resume} target="_blank" rel="noreferrer">
-            <button className="px-8 py-3 mt-6 mr-8 hover:scale-105 ease-in duration-300">
-              Resume
-            </button>
+          <Link href="/#projects">
+            <p className="py-2 text-gray-600 underline cursor-pointer">
+              Check out some of my latest proyects.
+            </p>
           </Link>
+          <div className="flex items-center">
+            <a
+              href="/CV.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="items-center justify-center flex"
+            >
+              <button className="px-8 py-3 mt-6 mr-8 hover:scale-105 ease-in duration-300">
+                CV
+              </button>
+            </a>
+            <a
+              href="/CV.pdf"
+              download
+              className="rounded-full shadow-lg shadow-gray-400 mt-6 p-4 cursor-pointer hover:scale-110 ease-in duration-300"
+            >
+              <AiOutlineDownload size={20} />
+            </a>
+          </div>
         </div>
         <div className="w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-full flex items-center justify-center p-4 hover:scale-105 ease-in duration-300">
           <Image
-            src={require("../../public/assets/me.jpeg")}
+            src={require("/public/assets/me.jpeg")}
             alt="portrait-photo"
             className="rounded-full"
           />

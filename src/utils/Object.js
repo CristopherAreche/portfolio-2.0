@@ -1,3 +1,7 @@
+import { AiOutlineMail } from "react-icons/ai";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { RiTwitterXFill } from "react-icons/ri";
+
 export const skills = [
   {
     id: 1,
@@ -26,11 +30,37 @@ export const skills = [
   { id: 13, name: "Github", image: "/../assets/skills/github1.png" },
   { id: 14, name: "Git", image: "/../assets/skills/git-icon.svg" },
   {
-    id: 12,
+    id: 15,
     name: "VS Code",
     image: "/../assets/skills/visual-studio-code.svg",
   },
-  { id: 12, name: "Trello", image: "/../assets/skills/trello.svg" },
+  { id: 16, name: "Trello", image: "/../assets/skills/trello.svg" },
+];
+export const social = [
+  {
+    id: 1,
+    name: "LinkedIn",
+    icon: <FaLinkedinIn />,
+    url: "https://www.linkedin.com/in/cristopher-areche-guillen-01a603186/",
+  },
+  {
+    id: 2,
+    name: "Github",
+    icon: <FaGithub />,
+    url: "https://github.com/CristopherAreche?tab=repositories",
+  },
+  {
+    id: 3,
+    name: "X",
+    icon: <RiTwitterXFill />,
+    url: "https://twitter.com/criistopher_ag",
+  },
+  {
+    id: 4,
+    name: "Gmail",
+    icon: <AiOutlineMail />,
+    url: "mailto:cristopherareche764@gmail.com",
+  },
 ];
 export const projects = [
   {

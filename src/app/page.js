@@ -1,10 +1,10 @@
 "use client";
-import Main from "@/components/Main";
+import Main from "@/app/main/page";
 import Navbar from "./navbar/page";
-import About from "@/components/About";
-import Skills from "@/components/Skills";
-import Projects from "@/components/Projects";
-import Contact from "@/components/Contact";
+import About from "@/app/about/page";
+import Skills from "@/app/skills/page";
+import Projects from "@/app/projects/page";
+import Contact from "@/app/contact/page";
 
 export default function Home() {
   return (
