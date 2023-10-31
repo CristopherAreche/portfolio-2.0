@@ -1,5 +1,5 @@
 "use client";
-import Navbar from "@/app/navbar/page";
+import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import React from "react";
 import propertyImg from "../../../public/assets/projects/crm.jpeg";

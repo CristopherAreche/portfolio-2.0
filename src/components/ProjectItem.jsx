@@ -6,7 +6,7 @@ const ProjectItem = ({ name, id, image, propertyUrl, mainTechnologies }) => {
     <>
       <div
         key={id}
-        className="relative flex items-center justify-center h-auto w-full shadow-xl shadow-gray-400 rounded-xl p-4 group hover:bg-gradient-to-r from-[#53E767] to-[#709dff]"
+        className="dark:bg-gray-800 dark:shadow-none relative flex items-center justify-center h-auto w-full shadow-xl shadow-gray-400 rounded-xl p-4 group hover:bg-gradient-to-r from-[#4ee862] to-[#53E767]"
       >
         <Image
           className="rounded-xl group-hover:opacity-10"

@@ -2,10 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { BsPersonLinesFill } from "react-icons/bs";
 import { useRouter } from "next/navigation";
 import { social } from "@/utils/Object";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -45,11 +44,12 @@ const Navbar = () => {
   }, []);
   return (
     <div
-      style={{ backgroundColor: `${navBg}` }}
+      id="navbar"
+      // style={{ backgroundColor: `${navBg}` }}
       className={
         shadow
-          ? `fixed w-full h-20 shadow-xl z-[100]`
-          : `fixed w-full h-20 z-[100]`
+          ? `fixed w-full h-20 shadow-xl dark:shadow-gray-900 dark:shadow-md z-[100] bg-[${navBg}] dark:bg-black`
+          : `fixed w-full h-20 z-[100] dark:bg-black`
       }
     >
       <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
@@ -62,7 +62,12 @@ const Navbar = () => {
           />
         </Link>
         <div>
-          <ul style={{ color: `${linkColor}` }} className="hidden md:flex">
+          <ul
+            className={`hidden md:flex text-[${linkColor}] dark:text-dark_mode_text`}
+          >
+            <li>
+              <ThemeSwitcher />
+            </li>
             <Link href="/#home">
               <li className="ml-10 text-sm uppercase hover:border-b">Home</li>
             </Link>
