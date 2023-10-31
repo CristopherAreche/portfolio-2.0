@@ -1,13 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const ProjectItem = ({ name, id, image, propertyUrl, mainTechnologies }) => {
+const ProjectItem = ({ name, id, image, mainTechnologies }) => {
+  console.log("IDs -->", id);
   return (
     <>
-      <div
-        key={id}
-        className="dark:bg-gray-800 dark:shadow-none relative flex items-center justify-center h-auto w-full shadow-xl shadow-gray-400 rounded-xl p-4 group hover:bg-gradient-to-r from-[#4ee862] to-[#53E767]"
-      >
+      <div className="dark:bg-gray-800 dark:shadow-none relative flex items-center justify-center h-auto w-full shadow-xl shadow-gray-400 rounded-xl p-4 group hover:bg-gradient-to-r from-[#4ee862] to-[#53E767]">
         <Image
           className="rounded-xl group-hover:opacity-10"
           src={image.toString()}
@@ -19,10 +17,12 @@ const ProjectItem = ({ name, id, image, propertyUrl, mainTechnologies }) => {
           <h3 className="text-2xl text-white tracking-wider text-center">
             {name}
           </h3>
-          <p className="pb-4 pt-2 text-white text-center">React JS</p>
-          <Link href={propertyUrl}>
+          <p className="pb-4 pt-2 text-white text-center">
+            {mainTechnologies[0]}
+          </p>
+          <Link href={`property/${id}`}>
             <p className="w-full px-3 text-center py-3 rounded-lg bg-white text-gray-700 font-bold text-lg cursor-pointer">
-              More Info
+              {`More Information`}
             </p>
           </Link>
         </div>

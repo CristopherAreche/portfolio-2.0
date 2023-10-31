@@ -64,26 +64,28 @@ export const social = [
 ];
 export const projects = [
   {
-    id: 1,
+    index: 1,
+    id: 10,
     name: "Rick and Morthy Webapp",
     image: "/../assets/projects/rickmorty_wp.jpeg",
     propertyUrl: "/property",
-    mainTechnologies: [" React", "Bootstrap", "Javascript"],
+    mainTechnologies: [" React JS", "Bootstrap", "Javascript"],
     allTechnologies: ["HTML & CSS", "React", "Bootstrap", "Javascript"],
     description:
-      "This was built using ReactJS and is hosted on Firebase. Users are able to search properties based on an address, city, or zip code to retrieve a list of active properties currently for sale. You will be able to view property information as well as the specific location of the property integrated with the Google Maps API.",
+      "Explore the quirky world of Rick and Morty through my React.js project, featuring an extensive character encyclopedia. Discover character traits, episode appearances, and filter options for status, species, and gender. Dive into specific locations to find the characters that inhabit them, all in a user-friendly experience that brings React.js and the show's charm together",
     deployment: "https://cristopherareche.github.io/rick_and_morty_website/",
     sourceCode: "https://github.com/CristopherAreche/rick_and_morty_website",
   },
   {
-    id: 2,
+    index: 2,
+    id: 11,
     name: "CRM",
     image: "/../assets/projects/crm.jpeg",
     propertyUrl: "/property",
-    mainTechnologies: [" React", "Bootstrap", "Javascript"],
+    mainTechnologies: [" React JS", "Bootstrap", "Javascript"],
     allTechnologies: [
       "HTML & CSS",
-      "React",
+      "React JS",
       "Tailwind CSS",
       "Javascript",
       "Node JS",
@@ -92,17 +94,18 @@ export const projects = [
       "Express",
     ],
     description:
-      "This was built using ReactJS and is hosted on Firebase. Users are able to search properties based on an address, city, or zip code to retrieve a list of active properties currently for sale. You will be able to view property information as well as the specific location of the property integrated with the Google Maps API.",
+      "Elevate your business management with this amazing CRM project, the all-in-one solution for sales, profiles, inventory, purchases, and VIP customer engagement. Streamline your operations and take control of your business success effortlessly.",
     deployment: "https://crm-henry-34b.vercel.app/",
     sourceCode: "https://github.com/CristopherAreche/crm-front",
   },
   {
-    id: 3,
+    index: 3,
+    id: 12,
     name: "Business Box",
     image: "/../assets/projects/business_box.jpeg",
     propertyUrl: "/property",
 
-    mainTechnologies: [" React", "Bootstrap", "Node JS"],
+    mainTechnologies: [" React JS", "Bootstrap", "Node JS"],
     allTechnologies: ["HTML & CSS", "React", "Bootstrap", "Javascript", "Node"],
     description:
       "This was built using ReactJS and is hosted on Firebase. Users are able to search properties based on an address, city, or zip code to retrieve a list of active properties currently for sale. You will be able to view property information as well as the specific location of the property integrated with the Google Maps API.",
@@ -110,15 +113,16 @@ export const projects = [
     sourceCode: "https://github.com/CristopherAreche/business-box",
   },
   {
-    id: 4,
+    index: 4,
+    id: 13,
     name: "Pokemon Webapp",
     image: "/../assets/projects/pokemon.jpeg",
     propertyUrl: "/property",
 
-    mainTechnologies: [" React", "Bootstrap", "Javascript"],
+    mainTechnologies: [" React JS", "Javascript", "Bootstrap"],
     allTechnologies: [
       "HTML & CSS",
-      "React",
+      "React JS",
       "Javascript",
       "Node JS",
       "PosgreSQL",

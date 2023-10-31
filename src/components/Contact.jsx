@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import { social } from "@/utils/Object";
 import { sendEmail } from "../../actions/sendEmail";
+import toast from "react-hot-toast";
 
 const Contact = () => {
   return (
@@ -110,7 +111,10 @@ const Contact = () => {
                     rows="10"
                   ></textarea>
                 </div>
-                <button className="w-full p-4 font-bold text-gray-100 mt-4 dark:shadow-none">
+                <button
+                  onClick={() => toast.success("Your Email has been sent.")}
+                  className="w-full p-4 font-bold text-gray-100 mt-4 dark:shadow-none"
+                >
                   Send Message
                 </button>
               </form>

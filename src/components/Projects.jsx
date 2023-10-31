@@ -14,6 +14,7 @@ const Projects = () => {
           {projects.map(
             ({
               id,
+              index,
               name,
               image,
               propertyUrl,
@@ -21,7 +22,8 @@ const Projects = () => {
               mainTechnologies,
             }) => (
               <ProjectItem
-                key={id}
+                key={index}
+                id={id}
                 name={name}
                 image={image}
                 propertyUrl={propertyUrl}
