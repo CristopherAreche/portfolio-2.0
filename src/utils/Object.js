@@ -67,7 +67,7 @@ export const projects = [
     index: 1,
     id: 10,
     name: "Rick and Morthy Webapp",
-    image: "/../assets/projects/rickmorty_wp.jpeg",
+    image: "/assets/rickmorty_wp.jpeg",
     propertyUrl: "/property",
     mainTechnologies: [" React JS", "Bootstrap", "Javascript"],
     allTechnologies: ["HTML & CSS", "React", "Bootstrap", "Javascript"],
@@ -80,7 +80,7 @@ export const projects = [
     index: 2,
     id: 11,
     name: "CRM",
-    image: "/../assets/projects/crm.jpeg",
+    image: "/assets/crm.jpeg",
     propertyUrl: "/property",
     mainTechnologies: [" React JS", "Bootstrap", "Javascript"],
     allTechnologies: [
@@ -102,7 +102,7 @@ export const projects = [
     index: 3,
     id: 12,
     name: "Business Box",
-    image: "/../assets/projects/business_box.jpeg",
+    image: "/assets/business_box.jpeg",
     propertyUrl: "/property",
 
     mainTechnologies: [" React JS", "Bootstrap", "Node JS"],
@@ -116,7 +116,7 @@ export const projects = [
     index: 4,
     id: 13,
     name: "Pokemon Webapp",
-    image: "/../assets/projects/pokemon.jpeg",
+    image: "/assets/pokemon.jpeg",
     propertyUrl: "/property",
 
     mainTechnologies: [" React JS", "Javascript", "Bootstrap"],
