@@ -134,4 +134,17 @@ export const projects = [
     deployment: "https://pokemon-lemon-two.vercel.app/",
     sourceCode: "https://github.com/CristopherAreche/pokemon-website",
   },
+  {
+    index: 5,
+    id: 14,
+    name: "Workout Webapp",
+    image: "/assets/workout.jpeg",
+    propertyUrl: "/property",
+    mainTechnologies: [" React JS", "Bootstrap", "Javascript"],
+    allTechnologies: ["HTML & CSS", "React", "Javascript"],
+    description:
+      "Welcome to my Fitness Webapp, your go-to destination for targeted workouts based on specific body regions. This user-friendly website offers a curated collection of exercises designed to tone and strengthen different parts of your body",
+    deployment: "https://fitness-website-ashy-nine.vercel.app/",
+    sourceCode: "https://github.com/CristopherAreche/Fitness-Website",
+  },
 ];
