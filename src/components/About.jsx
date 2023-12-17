@@ -54,12 +54,14 @@ const About = () => {
             </a>
           </div>
         </div>
-        <div className="w-full h-auto m-auto shadow-xl dark:shadow-none dark:bg-gray-800 shadow-gray-400 rounded-full hidden lg:block md:block items-center justify-center p-4 hover:scale-105 ease-in duration-300">
-          <Image
-            src={require("/public/assets/me.jpeg")}
-            alt="portrait-photo"
-            className="rounded-full"
-          />
+        <div className="w-full border-8 border-green-500 h-auto m-auto shadow-xl dark:shadow-none shadow-gray-400 rounded-full hidden lg:block md:block items-center justify-center hover:scale-105 ease-in duration-300">
+          <div className="p-2 rounded-full bg-transparent ">
+            <Image
+              src={require("/public/assets/me.jpeg")}
+              alt="portrait-photo"
+              className="rounded-full"
+            />
+          </div>
         </div>
       </div>
     </div>

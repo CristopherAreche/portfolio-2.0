@@ -5,21 +5,28 @@ import ProjectItem from "./ProjectItem";
 const Projects = () => {
   return (
     <div id="projects" className="w-full dark:bg-dark_bg">
-      <div className="max-w-[1240px] mx-auto px-2 py-[6em] ">
-        <p className="text-xl tracking-widest uppercase text-[#53E767]">
-          Projects
-        </p>
-        <h2 className="py-4 dark:text-dark_mode_text">What I&apos;ve built</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+      <div className="max-w-[1240px] mx-auto py-[6em] flex flex-col items-center">
+        <div className="py-6 text-center md:text-left w-full px-[4em]">
+          <p className="text-2xl tracking-widest uppercase text-[#53E767]">
+            Projects
+          </p>
+          <h2 className="py-4 dark:text-dark_mode_text">
+            What I&apos;ve built
+          </h2>
+        </div>
+        <div className="flex flex-col gap-8 w-[90%] items-center justify-center">
           {projects.map(
             ({
-              id,
               index,
+              id,
               name,
               image,
               propertyUrl,
-              deployment,
               mainTechnologies,
+              allTechnologies,
+              description,
+              deployment,
+              sourceCode,
             }) => (
               <ProjectItem
                 key={index}
@@ -30,6 +37,9 @@ const Projects = () => {
                 deployment={deployment}
                 projects={projects}
                 mainTechnologies={mainTechnologies}
+                description={description}
+                sourceCode={sourceCode}
+                allTechnologies={allTechnologies}
               />
             )
           )}

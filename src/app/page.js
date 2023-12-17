@@ -9,11 +9,10 @@ import Contact from "@/components/Contact";
 export default function Home() {
   return (
     <main>
-      <Navbar />
       <Main />
-      <About />
       <Skills />
       <Projects />
+      <About />
       <Contact />
     </main>
   );

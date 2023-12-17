@@ -72,7 +72,7 @@ export const projects = [
     mainTechnologies: [" React JS", "Bootstrap", "Javascript"],
     allTechnologies: ["HTML & CSS", "React", "Bootstrap", "Javascript"],
     description:
-      "Explore the quirky world of Rick and Morty through my React.js project, featuring an extensive character encyclopedia. Discover character traits, episode appearances, and filter options for status, species, and gender. Dive into specific locations to find the characters that inhabit them, all in a user-friendly experience that brings React.js and the show's charm together",
+      "Explore the quirky world of Rick and Morty through my React.js project, featuring an extensive character encyclopedia. Discover character traits, episode appearances, and filter options for status, species, and gender.",
     deployment: "https://cristopherareche.github.io/rick_and_morty_website/",
     sourceCode: "https://github.com/CristopherAreche/rick_and_morty_website",
   },

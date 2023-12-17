@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -45,14 +46,13 @@ const Navbar = () => {
   return (
     <div
       id="navbar"
-      // style={{ backgroundColor: `${navBg}` }}
       className={
         shadow
-          ? `fixed w-full h-20 shadow-xl dark:shadow-gray-900 dark:shadow-md z-[100] bg-[${navBg}] dark:bg-black`
-          : `fixed w-full h-20 z-[100] dark:bg-black`
+          ? `fixed w-full h-28 shadow-xl dark:shadow-gray-900 dark:shadow-md z-[100] bg-[${navBg}] dark:bg-black`
+          : `fixed w-full h-28 z-[100] dark:bg-black`
       }
     >
-      <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
+      <div className="flex justify-between items-center w-full h-full px-2 md:px-10 xl:px-24">
         <Link href="/#home">
           <Image
             src={require("/public/assets/logo.png")}
@@ -69,21 +69,27 @@ const Navbar = () => {
               <ThemeSwitcher />
             </li>
             <Link href="/#home">
-              <li className="ml-10 text-sm uppercase hover:border-b">Home</li>
-            </Link>
-            <Link href="/#about">
-              <li className="ml-10 text-sm uppercase hover:border-b">About</li>
+              <li className="ml-10 text-sm uppercase hover:border-b h-full flex items-center">
+                Home
+              </li>
             </Link>
             <Link href="/#skills">
-              <li className="ml-10 text-sm uppercase hover:border-b">Skills</li>
+              <li className="ml-10 text-sm uppercase hover:border-b h-full flex items-center">
+                Skills
+              </li>
             </Link>
             <Link href="/#projects">
-              <li className="ml-10 text-sm uppercase hover:border-b">
+              <li className="ml-10 text-sm uppercase hover:border-b h-full flex items-center">
                 Projects
               </li>
             </Link>
+            <Link href="/#about">
+              <li className="ml-10 text-sm uppercase hover:border-b h-full flex items-center">
+                About
+              </li>
+            </Link>
             <Link href="/#contact">
-              <li className="ml-10 text-sm uppercase hover:border-b">
+              <li className="ml-10 text-sm uppercase hover:border-b h-full flex items-center">
                 Contact
               </li>
             </Link>

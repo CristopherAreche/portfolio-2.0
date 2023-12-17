@@ -15,13 +15,26 @@ const ThemeSwitcher = () => {
     return null;
   }
   return (
-    <div className="dark:bg-gray-800 dark:text-dark_mode_text flex gap-3 text-xl py-[3px] px-2 rounded-full">
-      <label className="" onClick={() => setTheme("light")}>
-        <BsSun />
-      </label>
-      <label className="" onClick={() => setTheme("dark")}>
-        <BsMoon />
-      </label>
+    <div
+      className={`${
+        theme === "dark" ? "dark bg-gray-400" : ""
+      } bg-gray-700 text-dark_mode_text flex gap-3 text-xl p-3 rounded-full`}
+    >
+      {theme === "dark" ? (
+        <label
+          className="cursor-pointer flex justify-center items-center gap-2"
+          onClick={() => setTheme("light")}
+        >
+          <BsSun className="text-yellow-400 font-bold" />
+        </label>
+      ) : (
+        <label
+          className="cursor-pointer flex justify-center items-center gap-2"
+          onClick={() => setTheme("dark")}
+        >
+          <BsMoon className="text-white" />
+        </label>
+      )}
     </div>
   );
 };
