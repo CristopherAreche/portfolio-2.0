@@ -23,9 +23,13 @@ const ProjectItem = (item) => {
           </Link>
           <Link
             href={item.deployment}
-            className="py-1 px-5 rounded-full uppercase bg-gradient-to-r from-[#53E767] to-[#3fce52] text-white"
+            className={`py-1 px-5 rounded-full uppercase ${
+              item.deployment === "in progress"
+                ? "bg-gradient-to-r from-[#d21b1b] to-[#f13c20]"
+                : "bg-gradient-to-r from-[#53E767] to-[#3fce52]"
+            } text-white`}
           >
-            Live
+            {item.deployment === "in progress" ? "In Progress" : "Live"}
           </Link>
         </div>
       </div>

@@ -65,19 +65,6 @@ export const social = [
 export const projects = [
   {
     index: 1,
-    id: 10,
-    name: "Rick and Morthy Webapp",
-    image: "/assets/rickmorty_wp.jpeg",
-    propertyUrl: "/property",
-    mainTechnologies: [" React JS", "Bootstrap", "Javascript"],
-    allTechnologies: ["HTML & CSS", "React", "Bootstrap", "Javascript"],
-    description:
-      "Explore the quirky world of Rick and Morty through my React.js project, featuring an extensive character encyclopedia. Discover character traits, episode appearances, and filter options for status, species, and gender.",
-    deployment: "https://cristopherareche.github.io/rick_and_morty_website/",
-    sourceCode: "https://github.com/CristopherAreche/rick_and_morty_website",
-  },
-  {
-    index: 2,
     id: 11,
     name: "CRM",
     image: "/assets/crm.jpeg",
@@ -99,12 +86,11 @@ export const projects = [
     sourceCode: "https://github.com/CristopherAreche/crm-front",
   },
   {
-    index: 3,
+    index: 2,
     id: 12,
     name: "Business Box",
     image: "/assets/business_box.jpeg",
     propertyUrl: "/property",
-
     mainTechnologies: [" React JS", "Bootstrap", "Node JS"],
     allTechnologies: ["HTML & CSS", "React", "Bootstrap", "Javascript", "Node"],
     description:
@@ -113,7 +99,53 @@ export const projects = [
     sourceCode: "https://github.com/CristopherAreche/business-box",
   },
   {
+    index: 3,
+    id: 13,
+    name: "Coffee Shop",
+    image: "/assets/coffeeShop.png",
+    propertyUrl: "/property",
+    mainTechnologies: [" React JS", "Bootstrap", "Node JS"],
+    allTechnologies: [
+      "HTML & CSS",
+      "React",
+      "Tailwind CSS",
+      "Prisma",
+      "Next.js",
+      "PostgreSQL",
+    ],
+    description:
+      "An online hub for coffee enthusiasts, this website allows users to effortlessly explore and order diverse coffee blends. The user-friendly interface ensures a seamless experience, while a convenient order history feature lets users track and replicate their favorite coffee choices. Elevate your coffee experience with this stylish and user-centric web solution.",
+    deployment: "in progress",
+    sourceCode: "https://github.com/CristopherAreche/business-box",
+  },
+  {
     index: 4,
+    id: 14,
+    name: "Workout Webapp",
+    image: "/assets/workout.jpeg",
+    propertyUrl: "/property",
+    mainTechnologies: [" React JS", "Bootstrap", "Javascript"],
+    allTechnologies: ["HTML & CSS", "React", "Javascript"],
+    description:
+      "Welcome to my Fitness Webapp, your go-to destination for targeted workouts based on specific body regions. This user-friendly website offers a curated collection of exercises designed to tone and strengthen different parts of your body",
+    deployment: "https://fitness-website-ashy-nine.vercel.app/",
+    sourceCode: "https://github.com/CristopherAreche/Fitness-Website",
+  },
+  {
+    index: 5,
+    id: 10,
+    name: "Rick and Morthy Webapp",
+    image: "/assets/rickmorty_wp.jpeg",
+    propertyUrl: "/property",
+    mainTechnologies: [" React JS", "Bootstrap", "Javascript"],
+    allTechnologies: ["HTML & CSS", "React", "Bootstrap", "Javascript"],
+    description:
+      "Explore the quirky world of Rick and Morty through my React.js project, featuring an extensive character encyclopedia. Discover character traits, episode appearances, and filter options for status, species, and gender.",
+    deployment: "https://cristopherareche.github.io/rick_and_morty_website/",
+    sourceCode: "https://github.com/CristopherAreche/rick_and_morty_website",
+  },
+  {
+    index: 6,
     id: 13,
     name: "Pokemon Webapp",
     image: "/assets/pokemon.jpeg",
@@ -133,18 +165,5 @@ export const projects = [
       "This was built using ReactJS and is hosted on Firebase. Users are able to search properties based on an address, city, or zip code to retrieve a list of active properties currently for sale. You will be able to view property information as well as the specific location of the property integrated with the Google Maps API.",
     deployment: "https://pokemon-lemon-two.vercel.app/",
     sourceCode: "https://github.com/CristopherAreche/pokemon-website",
-  },
-  {
-    index: 5,
-    id: 14,
-    name: "Workout Webapp",
-    image: "/assets/workout.jpeg",
-    propertyUrl: "/property",
-    mainTechnologies: [" React JS", "Bootstrap", "Javascript"],
-    allTechnologies: ["HTML & CSS", "React", "Javascript"],
-    description:
-      "Welcome to my Fitness Webapp, your go-to destination for targeted workouts based on specific body regions. This user-friendly website offers a curated collection of exercises designed to tone and strengthen different parts of your body",
-    deployment: "https://fitness-website-ashy-nine.vercel.app/",
-    sourceCode: "https://github.com/CristopherAreche/Fitness-Website",
   },
 ];
