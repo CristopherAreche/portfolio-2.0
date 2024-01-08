@@ -2,7 +2,7 @@ import { AiOutlineMail } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 
-export const skills = [
+export const frontEndSkills = [
   {
     id: 1,
     name: "HTML",
@@ -22,11 +22,15 @@ export const skills = [
   { id: 5, name: "Redux-Toolkit", image: "/assets/skills/redux.svg" },
   { id: 6, name: "Bootstrap", image: "/assets/skills/bootstrap.svg" },
   { id: 7, name: "Tailwind", image: "/assets/skills/tailwind.png" },
-  { id: 8, name: "Next", image: "/assets/skills/nextjs.png" },
-  { id: 9, name: "Node", image: "/assets/skills/node.png" },
-  { id: 10, name: "Sequelize", image: "/assets/skills/sequelize.svg" },
-  { id: 11, name: "PostgreSQL", image: "/assets/skills/postgresql.svg" },
-  { id: 12, name: "Postman", image: "/assets/skills/postman.svg" },
+];
+export const backEndSkills = [
+  { id: 2, name: "Node", image: "/assets/skills/node.png" },
+  { id: 3, name: "Sequelize", image: "/assets/skills/sequelize.svg" },
+  { id: 4, name: "PostgreSQL", image: "/assets/skills/postgresql.svg" },
+  { id: 5, name: "Postman", image: "/assets/skills/postman.svg" },
+  { id: 1, name: "Next", image: "/assets/skills/nextjs.png" },
+];
+export const tools = [
   { id: 13, name: "Github", image: "/assets/skills/github1.png" },
   { id: 14, name: "Git", image: "/assets/skills/git-icon.svg" },
   {
