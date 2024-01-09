@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { backEndSkills, frontEndSkills } from "@/utils/Object";
 import { FaFileAlt } from "react-icons/fa";
@@ -6,8 +6,24 @@ import { IoDownloadSharp } from "react-icons/io5";
 import { FaCopy } from "react-icons/fa";
 import Link from "next/link";
 import Ellipse from "./Ellipse";
+import clipboard from "clipboard-copy";
+import { motion } from "framer-motion";
 
 const Hero = () => {
+  const [isCopied, setIsCopied] = useState(false);
+
+  const handleCopyClick = async () => {
+    try {
+      await clipboard("cristopherareche764@gmail.com");
+      setIsCopied(true);
+      setTimeout(() => {
+        setIsCopied(false);
+      }, 2000);
+    } catch (error) {
+      console.error("Error", error);
+    }
+  };
+
   return (
     <>
       <div className=" absolute phone:min-w-screen tablet:w-full h-screen text-center dark:bg-dark_bg flex justify-center laptop:items-center phone:mt-[50px] tablet:mt-[150px] laptop:mt-0">
@@ -16,9 +32,9 @@ const Hero = () => {
           <div className=" phone:w-full  phone:max-w-[498px] xsPhone:w-screen xsPhone:h-[600px] xsPhone:gap-6 xsPhone:justify-center phone:h-[510px] tablet:max-w-[550px]  laptop:max-h-[520px] laptop:justify-between  flex flex-col phone:justify-start laptop:gap-4 phone:gap-8">
             {/* Header */}
             <div className="flex flex-col phone:justify-center phone:items-center laptop:items-start">
-              <h1 className="xsPhone:px-[15px] xsPhone:text-center laptop:px-0 font-main-font font-normal xsPhone:text-[30px] phone:text-[38px] mb-4 text-start text-grey_text dark:text-dark_mode_text">
+              <motion.div className="xsPhone:px-[15px] xsPhone:text-center laptop:px-0 font-main-font font-normal xsPhone:text-[30px] phone:text-[38px] mb-4 text-start text-grey_text dark:text-dark_mode_text">
                 Hi, I&apos;M <span className="text-[#53E767]">Cristopher</span>
-              </h1>
+              </motion.div>
               <h1 className="xsPhone:px-[15px] laptop:px-0 tablet:text-center laptop:text-start uppercase font-main-font font-normal  xsPhone:text-[30px] phone:text-[38px] text-grey_text dark:text-dark_mode_text">
                 A Front-End Developer
               </h1>
@@ -41,15 +57,15 @@ const Hero = () => {
                     |
                   </p>
                 </div>
-                <div className="flex gap-[10px]">
-                  {frontEndSkills.map((skill) => (
+                <div className="flex gap-[10px] ">
+                  {frontEndSkills?.map((skill) => (
                     <Image
                       key={skill.id}
                       src={skill.image}
                       alt={skill.name}
                       width={28}
                       height={28}
-                      className=""
+                      className="transition-transform transform hover:scale-125"
                     />
                   ))}
                 </div>
@@ -64,14 +80,14 @@ const Hero = () => {
                   </p>
                 </div>
                 <div className="flex gap-[10px]">
-                  {backEndSkills.map((skill) => (
+                  {backEndSkills?.map((skill) => (
                     <Image
                       key={skill.id}
                       src={skill.image}
                       alt={skill.name}
                       width={30}
                       height={30}
-                      className="phone:h-[28]"
+                      className="phone:h-[28] transition-transform transform hover:scale-125"
                     />
                   ))}
                 </div>
@@ -80,27 +96,28 @@ const Hero = () => {
             {/* CV and Email */}
             <div className="flex justify-between xsPhone:px-[15px] laptop:px-0">
               {/* CV */}
-              <div className="flex ring-2 ring-[#53E767] w-[51px] items-center justify-center gap-1 rounded-lg cursor-pointer hover:bg-[#53E767]">
+              <Link
+                href="/CV.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="flex ring-2 ring-[#53E767] w-[150px] items-center justify-center gap-1 rounded-lg cursor-pointer hover:bg-[#53E767] transition-transform transform hover:scale-110"
+              >
                 <FaFileAlt className="w-18 h-21 text-center dark:text-dark_mode_text" />
                 <p className="font-main-font text-[20px] dark:text-dark_mode_text">
-                  CV
+                  RESUME / CV
                 </p>
-              </div>
-              {/* Download CV */}
-              <div className="flex ring-2 ring-[#53E767] w-[115px] items-center justify-center gap-1 rounded-lg cursor-pointer hover:bg-[#53E767]">
-                <IoDownloadSharp className="w-18 h-21 text-center dark:text-dark_mode_text" />
-                <p className="font-main-font text-[20px] dark:text-dark_mode_text">
-                  DOWNLOAD
-                </p>
-              </div>
+              </Link>
               {/* Email */}
-              <div className="flex px-1 items-center justify-center gap-1 rounded-lg cursor-pointer">
+              <div
+                onClick={handleCopyClick}
+                className="flex px-1 laptop:w-[330px] items-center justify-start gap-1 rounded-lg cursor-pointer transition-transform transform hover:scale-110 "
+              >
                 <FaCopy className="w-18 h-21 text-center dark:text-dark_mode_text hover:text-[#53E767] hover:dark:text-[#53E767]" />
                 <p className="font-main-font text-[20px] uppercase dark:text-dark_mode_text xsPhone:hidden laptop:flex">
-                  cristopherareche764@gmail.com
+                  {isCopied ? "Copied!" : "cristopherareche764@gmail.com"}
                 </p>
                 <p className="font-main-font text-[20px] uppercase dark:text-dark_mode_text xsPhone:flex laptop:hidden">
-                  copy email
+                  {isCopied ? "Copied!" : "Copy Email"}
                 </p>
               </div>
             </div>
@@ -117,7 +134,7 @@ const Hero = () => {
                   <Image
                     src={require("/public/assets/github.svg")}
                     alt="portrait-photo"
-                    className="rounded-full laptop:w-[90px] laptop:h-[90px] phone:w-[44px] phone:h-[44px] z-20 absolute laptop:left-[350px] phone:left-[180px] tablet:right-[90px] tablet:w-[44px] tablet:h-[44px] cursor-pointer transition-transform transform hover:scale-110"
+                    className="rounded-full laptop:w-[90px] laptop:h-[90px] phone:w-[44px] phone:h-[44px] z-20 absolute laptop:left-[350px] phone:left-[180px] tablet:right-[90px] tablet:w-[44px] tablet:h-[44px] cursor-pointer transition-transform transform hover:scale-125"
                   />
                 </Link>
                 <Link
@@ -129,7 +146,7 @@ const Hero = () => {
                   <Image
                     src={require("/public/assets/linkedin.svg")}
                     alt="portrait-photo"
-                    className=" laptop:w-[90px] laptop:h-[90px] z-20 absolute laptop:top-[350px] laptop:left-0 phone:top-[160px] phone:left-[-30px] cursor-pointer transition-transform transform hover:scale-110"
+                    className=" laptop:w-[90px] laptop:h-[90px] z-20 absolute laptop:top-[350px] laptop:left-0 phone:top-[160px] phone:left-[-30px] cursor-pointer transition-transform transform hover:scale-125"
                   />
                 </Link>
 
@@ -137,13 +154,8 @@ const Hero = () => {
                   <Image
                     src={require("/public/assets/me.jpeg")}
                     alt="portrait-photo"
-                    className="rounded-full ring-[6px] ring-grey_text dark:ring-green_text phone:w-[175px] phone:h-[175px] laptop:h-[350px] laptop:w-[343px] z-20"
+                    className="rounded-full ring-[6px] ring-grey_text dark:ring-green_text phone:w-[175px] phone:h-[175px] laptop:h-[350px] laptop:w-[343px] z-20 transition-transform transform hover:scale-110"
                   />
-                  {/* <Image
-                    src={require("/public/assets/Ellipse.svg")}
-                    alt="portrait-photo"
-                    className="z-[-1] rounded-full phone:w-[175px] phone:h-[175px] laptop:h-[350px] laptop:w-[343px] absolute laptop:top-[70px] laptop:left-[70px] phone:top-[25px] phone:left-[30px]"
-                  /> */}
                   <Ellipse />
                 </div>
               </div>

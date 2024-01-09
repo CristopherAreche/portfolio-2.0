@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { TbWorldCode } from "react-icons/tb";
 import { TbWorldOff } from "react-icons/tb";
+import CustomLink from "./CustomLink";
 
 const ProjectItem = ({
   index,
@@ -25,7 +26,7 @@ const ProjectItem = ({
         >
           <div className="flex flex-col h-full">
             <Image
-              className="tablet:max-w-[340px] tablet:h-[270px] shadow-lg shadow-gray-400 dark:shadow-transparent rounded-xl border-2 border-black dark:border-white"
+              className="tablet:max-w-[340px] tablet:h-[270px] shadow-lg shadow-gray-400 dark:shadow-transparent rounded-xl border-2 border-black dark:border-white transition-transform transform hover:scale-90"
               src={image}
               width={324}
               height={231}
@@ -33,13 +34,14 @@ const ProjectItem = ({
             />
             {/* Github and Email */}
             <div className="flex justify-between items-center mt-3">
-              <h3 className="xsPhone:text-[25px] text-grey_text dark:text-green_text font-main-font p-0 m-0 xsPhone:block tablet:hidden">
+              <h3 className="xsPhone:text-[25px]  text-grey_text dark:text-green_text font-main-font p-0 m-0 xsPhone:block tablet:hidden">
                 {name}
               </h3>
-              <div className="w-full flex justify-end tablet:justify-between gap-[13px]">
+              <div className="w-auto flex justify-end tablet:justify-between gap-[13px]">
                 <Link
+                  target="_blank"
                   href={sourceCode}
-                  className="rounded-full gap-2 flex justify-center items-center font-main-font"
+                  className="rounded-full gap-2 flex justify-center items-center font-main-font transition-transform transform hover:scale-90"
                 >
                   <FaGithub className="w-[35px] h-[35px] text-grey_text dark:text-white" />
                   <p className="text-[20px] dark:text-white uppercase hidden tablet:block">
@@ -47,8 +49,9 @@ const ProjectItem = ({
                   </p>
                 </Link>
                 <Link
-                  href={deployment}
-                  className={`rounded-full uppercase ${
+                  target="_blank"
+                  href={deployment === "in progress" ? "#" : deployment}
+                  className={`rounded-full uppercase transition-transform transform hover:scale-90 ${
                     deployment === "in progress" ? "" : ""
                   } `}
                 >
@@ -146,7 +149,7 @@ const ProjectItem = ({
           {/* Image */}
           <div className="flex flex-col h-full">
             <Image
-              className="tablet:max-w-[340px] tablet:h-[270px] shadow-lg shadow-gray-400 dark:shadow-transparent rounded-xl border-2 border-black dark:border-white"
+              className="tablet:max-w-[340px] tablet:h-[270px] shadow-lg shadow-gray-400 dark:shadow-transparent rounded-xl border-2 border-black dark:border-white transition-transform transform hover:scale-90"
               src={image}
               width={324}
               height={231}
@@ -157,33 +160,18 @@ const ProjectItem = ({
               <h3 className="xsPhone:text-[25px] text-grey_text dark:text-green_text font-main-font p-0 m-0 xsPhone:block tablet:hidden">
                 {name}
               </h3>
-              <div className="w-full flex justify-end tablet:justify-between gap-[13px]">
+              <div className="w-auto flex justify-end tablet:justify-between gap-[13px]">
                 <Link
+                  target="_blank"
                   href={sourceCode}
-                  className="rounded-full gap-2 flex justify-center items-center font-main-font"
+                  className="rounded-full gap-2 flex justify-center items-center font-main-font transition-transform transform hover:scale-90"
                 >
                   <FaGithub className="w-[35px] h-[35px] text-grey_text dark:text-white" />
                   <p className="text-[20px] uppercase hidden tablet:block dark:text-white">
                     Source Code
                   </p>
                 </Link>
-
-                <Link
-                  href={deployment}
-                  target="_blank"
-                  className="flex gap-2 items-center justify-center font-main-font"
-                >
-                  {deployment === "in progress" ? (
-                    <TbWorldOff className="w-[35px] h-[35px] text-red-700" />
-                  ) : (
-                    <TbWorldCode className="w-[35px] h-[35px] text-grey_text dark:text-white" />
-                  )}
-                  <p className="text-[20px] uppercase hidden tablet:block dark:text-white">
-                    {deployment === "in progress"
-                      ? "in progress"
-                      : "visit website"}
-                  </p>
-                </Link>
+                <CustomLink href={deployment} deployment={deployment} />
               </div>
             </div>
           </div>

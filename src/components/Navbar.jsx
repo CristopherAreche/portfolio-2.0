@@ -10,7 +10,7 @@ const Navbar = ({ project, setProject }) => {
   };
 
   return (
-    <div className=" z-10 w-full absolute xsPhone:top-[80vh] tablet:top-0  mt-[71px]">
+    <div className=" z-10 w-full absolute xsPhone:top-[80vh] tablet:top-0  tablet:pt-[71px] tablet:pb-6 laptop:bg-light_text dark:laptop:bg-black">
       <div className="flex justify-center items-center w-full h-full">
         <div
           className={`flex justify-between items-center h-[46px] w-[223px] px-1 dark:bg-light_text bg-grey_text rounded-full`}
