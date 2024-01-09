@@ -88,8 +88,8 @@ export const projects = [
     ],
     description:
       "Elevate your business management with this amazing CRM project, the all-in-one solution for sales, profiles, inventory, purchases, and VIP customer engagement. Streamline your operations and take control of your business success effortlessly.",
-    deployment: "https://crm-henry-34b.vercel.app/",
-    sourceCode: "https://github.com/CristopherAreche/crm-front",
+    deployment: "https://crm-2-mocha.vercel.app/",
+    sourceCode: "https://github.com/CristopherAreche/CRM",
   },
   {
     index: 2,
