@@ -1,72 +1,184 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FaGithub } from "react-icons/fa";
+import { TbWorldCode } from "react-icons/tb";
+import { TbWorldOff } from "react-icons/tb";
+import CustomLink from "./CustomLink";
 
-const ProjectItem = (item) => {
+const ProjectItem = ({
+  index,
+  id,
+  name,
+  image,
+  frontend_tech,
+  backend_tech,
+  description,
+  deployment,
+  sourceCode,
+}) => {
+  const isOddId = id % 2 !== 0;
   return (
-    <div className="gap-2 dark:shadow-none relative flex flex-col md:flex-row items-center justify-between w-full h-auto rounded-xl p-2 group">
-      <div className="flex flex-col gap-4">
-        <div className="w-full h-auto shadow-md shadow-gray-400 rounded-xl border-4">
-          <Image
-            className="rounded-xl object-contain"
-            src={item.image}
-            width={380}
-            height={380}
-            alt={item.name}
-          />
-        </div>
-        <div className="flex justify-evenly">
-          <Link
-            href={item.sourceCode}
-            className="py-1 px-5 rounded-full uppercase bg-gradient-to-r from-[#53E767] to-[#3fce52] text-white"
-          >
-            Code
-          </Link>
-          <Link
-            href={item.deployment}
-            className={`py-1 px-5 rounded-full uppercase ${
-              item.deployment === "in progress"
-                ? "bg-gradient-to-r from-[#d21b1b] to-[#f13c20]"
-                : "bg-gradient-to-r from-[#53E767] to-[#3fce52]"
-            } text-white`}
-          >
-            {item.deployment === "in progress" ? "In Progress" : "Live"}
-          </Link>
-        </div>
-      </div>
-      <div className="w-full h-full xl:px-4 flex flex-col gap-2">
-        <h3 className="text-2xl text-gray-800 dark:text-gray-100 xl:text-left text-center">
-          {item.name}
-        </h3>
-        <p className="w-full text-left text-md h-full px-3 py-3 rounded-lg text-gray-800 dark:text-gray-100 cursor-pointer">
-          {item.description}
-        </p>
-        <div className="pb-4 pt-2 text-gray-800 text-center flex px-3 gap-3 flex-wrap">
-          {item.allTechnologies.map((items, index) => (
-            <div
-              className=" border-green-500 text-green-500 border-2 rounded-full py-1 px-3 flex flex-wrap"
-              key={index}
-            >
-              {items}
+    <>
+      {isOddId ? (
+        <div
+          key={index}
+          className="xsPhone:w-[324px] tablet:w-full tablet:gap-8 tablet:h-[300px] gap-2  dark:shadow-none flex flex-col md:flex-row items-center justify-between"
+        >
+          <div className="flex flex-col h-full">
+            <Image
+              className="tablet:max-w-[340px] tablet:h-[270px] shadow-lg shadow-gray-400 dark:shadow-transparent rounded-xl border-2 border-black dark:border-white transition-transform transform hover:scale-90"
+              src={image}
+              width={324}
+              height={231}
+              alt={name}
+            />
+            {/* Github and Email */}
+            <div className="flex justify-between items-center mt-3">
+              <h3 className="xsPhone:text-[25px]  text-grey_text dark:text-green_text font-main-font p-0 m-0 xsPhone:block tablet:hidden">
+                {name}
+              </h3>
+              <div className="w-auto flex justify-end tablet:justify-between gap-[13px]">
+                <Link
+                  target="_blank"
+                  href={sourceCode}
+                  className="rounded-full gap-2 flex justify-center items-center font-main-font transition-transform transform hover:scale-90"
+                >
+                  <FaGithub className="w-[35px] h-[35px] text-grey_text dark:text-white" />
+                  <p className="text-[20px] dark:text-white uppercase hidden tablet:block">
+                    Source Code
+                  </p>
+                </Link>
+                <Link
+                  target="_blank"
+                  href={deployment === "in progress" ? "#" : deployment}
+                  className={`rounded-full uppercase transition-transform transform hover:scale-90 ${
+                    deployment === "in progress" ? "" : ""
+                  } `}
+                >
+                  <div className="flex gap-2 items-center justify-center font-main-font">
+                    {deployment === "in progress" ? (
+                      <TbWorldOff className="w-[35px] h-[35px] text-red-700" />
+                    ) : (
+                      <TbWorldCode className="w-[35px] h-[35px] text-grey_text dark:text-white" />
+                    )}
+                    <p className="text-[20px] uppercase hidden tablet:block dark:text-white">
+                      Visit Website
+                    </p>
+                  </div>
+                </Link>
+              </div>
             </div>
-          ))}
+          </div>
+
+          {/* Name and description */}
+          <div className="flex flex-col tablet:w-auto tablet:h-full">
+            <h3 className="xsPhone:hidden tablet:block tablet:text-start text-[45px] font-main-font text-grey_text dark:text-green_text  xl:text-left text-center">
+              {name}
+            </h3>
+            <p className="tablet:mb-5 w-full tablet:h-[130px] text-left text-md py-3 text-grey_text dark:text-gray-100 cursor-pointer overflow-hidden">
+              {description}
+            </p>
+            <div className="">
+              <div className="flex gap-4 mb-4">
+                {frontend_tech &&
+                  frontend_tech.map(({ index, name, image }) => (
+                    <Image
+                      width={30}
+                      height={30}
+                      key={index}
+                      src={image}
+                      alt={name}
+                    />
+                  ))}
+              </div>
+              <div className="flex gap-4">
+                {backend_tech &&
+                  backend_tech.map(({ index, name, image }) => (
+                    <Image
+                      width={30}
+                      height={30}
+                      key={index}
+                      src={image}
+                      alt={name}
+                    />
+                  ))}
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      ) : (
+        <div
+          key={index}
+          className="xsPhone:w-[324px] tablet:w-full tablet:gap-8 tablet:h-[300px] gap-2  dark:shadow-none flex flex-col-reverse md:flex-row items-center justify-between"
+        >
+          {/* Name and description */}
+          <div className="flex flex-col tablet:w-auto tablet:h-full">
+            <h3 className="xsPhone:hidden  tablet:block tablet:text-end text-[45px] font-main-font text-grey_text dark:text-green_text text-center">
+              {name}
+            </h3>
+            <p className="tablet:mb-5 tablet:text-right w-full tablet:h-[130px] text-left  text-md py-3 text-grey_text dark:text-gray-100 cursor-pointer overflow-hidden">
+              {description}
+            </p>
+            <div className="tablet:flex tablet:flex-col tablet:items-end">
+              <div className="flex gap-4 mb-4">
+                {frontend_tech &&
+                  frontend_tech.map(({ index, name, image }) => (
+                    <Image
+                      width={30}
+                      height={30}
+                      key={index}
+                      src={image}
+                      alt={name}
+                    />
+                  ))}
+              </div>
+              <div className="flex gap-4">
+                {backend_tech &&
+                  backend_tech.map(({ index, name, image }) => (
+                    <Image
+                      width={30}
+                      height={30}
+                      key={index}
+                      src={image}
+                      alt={name}
+                    />
+                  ))}
+              </div>
+            </div>
+          </div>
+          {/* Image */}
+          <div className="flex flex-col h-full">
+            <Image
+              className="tablet:max-w-[340px] tablet:h-[270px] shadow-lg shadow-gray-400 dark:shadow-transparent rounded-xl border-2 border-black dark:border-white transition-transform transform hover:scale-90"
+              src={image}
+              width={324}
+              height={231}
+              alt={name}
+            />
+            {/* Github and Email */}
+            <div className="flex justify-between items-center mt-3">
+              <h3 className="xsPhone:text-[25px] text-grey_text dark:text-green_text font-main-font p-0 m-0 xsPhone:block tablet:hidden">
+                {name}
+              </h3>
+              <div className="w-auto flex justify-end tablet:justify-between gap-[13px]">
+                <Link
+                  target="_blank"
+                  href={sourceCode}
+                  className="rounded-full gap-2 flex justify-center items-center font-main-font transition-transform transform hover:scale-90"
+                >
+                  <FaGithub className="w-[35px] h-[35px] text-grey_text dark:text-white" />
+                  <p className="text-[20px] uppercase hidden tablet:block dark:text-white">
+                    Source Code
+                  </p>
+                </Link>
+                <CustomLink href={deployment} deployment={deployment} />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
 export default ProjectItem;
-
-{
-  /* <div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-<h3 className="text-2xl text-white tracking-wider text-center">
-  {name}
-</h3>
-
-<Link href={`property/${id}`}>
-  <p className="w-full px-3 text-center py-3 rounded-lg bg-white text-gray-700 font-bold text-lg cursor-pointer">
-    {`More Information`}
-  </p>
-</Link>
-</div> */
-}
