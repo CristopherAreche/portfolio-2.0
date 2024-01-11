@@ -18,14 +18,14 @@ const ThemeSwitcher = () => {
           className="cursor-pointer flex justify-center items-center gap-2"
           onClick={() => setTheme("light")}
         >
-          <BsSun className="text-yellow-400 font-bold h-30 w-30 transition-transform transform hover:scale-150" />
+          <BsSun className="text-yellow-400 font-bold h-30 w-30 transition-transform transform hover:scale-125" />
         </label>
       ) : (
         <label
           className="cursor-pointer flex justify-center items-center gap-2"
           onClick={() => setTheme("dark")}
         >
-          <RiMoonClearFill className="text-grey_text h-30 w-30 transition-transform transform hover:scale-150" />
+          <RiMoonClearFill className="text-grey_text h-30 w-30 transition-transform transform hover:scale-125" />
         </label>
       )}
     </div>
