@@ -93,7 +93,7 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            {/* CV and Email */}
+            {/* Email and CV */}
             <div className="flex justify-between xsPhone:px-[15px] laptop:px-0">
               {/* CV */}
               <Link
