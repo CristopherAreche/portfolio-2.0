@@ -97,9 +97,9 @@ const Hero = () => {
             <div className="flex justify-between xsPhone:px-[15px] laptop:px-0">
               {/* CV */}
               <Link
-                href="/CV.pdf"
+                href="/assets/CV.pdf"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="flex ring-2 ring-[#53E767] w-[150px] items-center justify-center gap-1 rounded-lg cursor-pointer hover:bg-[#53E767] transition-transform transform hover:scale-110"
               >
                 <FaFileAlt className="w-18 h-21 text-center dark:text-dark_mode_text" />
