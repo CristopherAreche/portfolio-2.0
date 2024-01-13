@@ -4,6 +4,7 @@ import { FaGithub } from "react-icons/fa";
 import { TbWorldCode } from "react-icons/tb";
 import { TbWorldOff } from "react-icons/tb";
 import CustomLink from "./CustomLink";
+import { motion } from "framer-motion";
 
 const ProjectItem = ({
   index,
@@ -20,7 +21,16 @@ const ProjectItem = ({
   return (
     <>
       {isOddId ? (
-        <div
+        <motion.div
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            delay: 2,
+            x: { type: "tween", stiffness: 60 },
+            opacity: { duration: 1 },
+            ease: "easeIn",
+            duration: 4,
+          }}
           key={index}
           className="xsPhone:w-[324px] tablet:w-full tablet:gap-8 tablet:h-[300px] gap-2  dark:shadow-none flex flex-col md:flex-row items-center justify-between"
         >
@@ -78,7 +88,17 @@ const ProjectItem = ({
             <p className="tablet:mb-5 w-full tablet:h-[130px] text-left text-md py-3 text-grey_text dark:text-gray-100 cursor-pointer overflow-hidden">
               {description}
             </p>
-            <div className="">
+            <motion.div
+              initial={{ x: 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{
+                delay: 0.1,
+                x: { type: "spring", stiffness: 60 },
+                opacity: { duration: 1 },
+                ease: "easeIn",
+                duration: 0.1,
+              }}
+            >
               <div className="flex gap-4 mb-4">
                 {frontend_tech &&
                   frontend_tech.map(({ index, name, image }) => (
@@ -88,6 +108,7 @@ const ProjectItem = ({
                       key={index}
                       src={image}
                       alt={name}
+                      className="transition-transform transform hover:scale-125"
                     />
                   ))}
               </div>
@@ -100,14 +121,24 @@ const ProjectItem = ({
                       key={index}
                       src={image}
                       alt={name}
+                      className="transition-transform transform hover:scale-125"
                     />
                   ))}
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       ) : (
-        <div
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{
+            delay: 0.1,
+            x: { type: "tween", stiffness: 60 },
+            opacity: { duration: 1 },
+            ease: "easeIn",
+            duration: 0.1,
+          }}
           key={index}
           className="xsPhone:w-[324px] tablet:w-full tablet:gap-8 tablet:h-[300px] gap-2  dark:shadow-none flex flex-col-reverse md:flex-row items-center justify-between"
         >
@@ -119,11 +150,23 @@ const ProjectItem = ({
             <p className="tablet:mb-5 tablet:text-right w-full tablet:h-[130px] text-left  text-md py-3 text-grey_text dark:text-gray-100 cursor-pointer overflow-hidden">
               {description}
             </p>
-            <div className="tablet:flex tablet:flex-col tablet:items-end">
+            <motion.div
+              initial={{ x: 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{
+                delay: 0.1,
+                x: { type: "spring", stiffness: 60 },
+                opacity: { duration: 1 },
+                ease: "easeIn",
+                duration: 0.1,
+              }}
+              className="tablet:flex tablet:flex-col tablet:items-end"
+            >
               <div className="flex gap-4 mb-4">
                 {frontend_tech &&
                   frontend_tech.map(({ index, name, image }) => (
                     <Image
+                      className="object-cover object-center transition-transform transform hover:scale-125"
                       width={30}
                       height={30}
                       key={index}
@@ -141,10 +184,11 @@ const ProjectItem = ({
                       key={index}
                       src={image}
                       alt={name}
+                      className="transition-transform transform hover:scale-125"
                     />
                   ))}
               </div>
-            </div>
+            </motion.div>
           </div>
           {/* Image */}
           <div className="flex flex-col h-full">
@@ -175,7 +219,7 @@ const ProjectItem = ({
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </>
   );

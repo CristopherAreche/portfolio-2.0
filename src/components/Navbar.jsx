@@ -3,6 +3,7 @@ import React from "react";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { FaCode } from "react-icons/fa6";
 import { FaHome } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Navbar = ({ project, setProject }) => {
   const handleComponent = () => {
@@ -10,8 +11,19 @@ const Navbar = ({ project, setProject }) => {
   };
 
   return (
-    <div className=" z-10 w-full absolute xsPhone:top-[80vh] tablet:top-0  tablet:pt-[71px] tablet:pb-6 laptop:bg-light_text dark:laptop:bg-black">
-      <div className="flex justify-center items-center w-full h-full">
+    <motion.div
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        delay: 0.1,
+        x: { type: "spring", stiffness: 20 },
+        opacity: { duration: 1 },
+        ease: "easeIn",
+        duration: 0.8,
+      }}
+      className=" z-10 w-full absolute xsPhone:top-[80vh] tablet:top-0  tablet:pt-[71px] tablet:pb-6 laptop:bg-light_text dark:laptop:bg-black"
+    >
+      <div className="flex justify-center items-center w-full h-full transition-transform transform hover:scale-95">
         <div
           className={`flex justify-between items-center h-[46px] w-[223px] px-1 dark:bg-light_text bg-grey_text rounded-full`}
         >
@@ -19,7 +31,7 @@ const Navbar = ({ project, setProject }) => {
 
           <div
             onClick={handleComponent}
-            className={`cursor-pointer group w-[160px] h-[40px] bg-light_bg dark:bg-grey_text justify-center items-center rounded-full flex gap-1 transition-transform transform hover:scale-95`}
+            className={`cursor-pointer group w-[160px] h-[40px] bg-light_bg dark:bg-grey_text justify-center items-center rounded-full flex gap-1`}
           >
             {project ? (
               <FaHome className="w-[34px] h-[20px] text-grey_text dark:text-light_text group-hover:text-green_text" />
@@ -32,7 +44,7 @@ const Navbar = ({ project, setProject }) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 
 const Ellipse = () => {
   return (
-    <div className="z-[-1] bg-grey_text dark:bg-green-500 dark:flex rounded-full phone:w-[175px] phone:h-[175px] laptop:h-[350px] laptop:w-[343px] absolute laptop:top-[70px] laptop:left-[70px] phone:top-[25px] phone:left-[30px]">
+    <div className="z-[-1]  dark:flex rounded-full phone:w-[175px] phone:h-[175px] laptop:h-[350px] laptop:w-[343px] absolute laptop:top-[70px] laptop:left-[70px] phone:top-[25px] phone:left-[30px]">
       <svg
         width="342"
         height="345"
