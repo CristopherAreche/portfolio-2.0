@@ -112,7 +112,7 @@ export const projects = [
     ],
     description:
       "I'm working on an app designed for dental healthcare centers to facilitate appointments with doctors. It consists of two sections: one for patients and another for doctors or administrators. The app manages patient appointments, maintains their medical history, creates digital odontograms for each patient, and keeps track of inventory records.",
-    deployment: "in progress",
+    deployment: "https://dental-care-pi.vercel.app/",
     sourceCode: "https://github.com/CristopherAreche/DentalCare",
   },
 
@@ -120,7 +120,7 @@ export const projects = [
     index: 3,
     id: 13,
     name: "Business Box",
-    image: "/assets/business_box.jpeg",
+    image: "/assets/business_box.png",
     propertyUrl: "/property",
     frontend_tech: [
       { name: "HTML", image: "/assets/skills/html.png" },
