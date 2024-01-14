@@ -268,14 +268,16 @@ const Hero = () => {
                     duration: 1,
                   }}
                 >
-                  <Image
-                    src={require("/public/assets/me.jpeg")}
-                    alt="portrait-photo"
-                    className="z-20 object-cover object-center rounded-full ring-[6px] ring-grey_text dark:ring-green_text phone:w-[175px] phone:h-[175px] laptop:h-[350px] laptop:w-[343px] transition-transform transform hover:scale-110"
-                  />
+                  <div className=" z-20">
+                    <Image
+                      src={require("/public/assets/me.jpeg")}
+                      alt="portrait-photo"
+                      className="z-20 object-cover ring-8 ring-gray-600 relative object-center rounded-full dark:ring-green_text phone:w-[175px] phone:h-[175px] laptop:h-[350px] laptop:w-[343px] transition-transform transform hover:scale-110"
+                    />
+                  </div>
                   <div>
                     {/* <Ellipse className="dark:bg-green-500 bg-grey_text" /> */}
-                    <div className="z-[-1] bg-grey_text  dark:flex rounded-full phone:w-[175px] phone:h-[175px] laptop:h-[350px] laptop:w-[343px] absolute laptop:top-[70px] laptop:left-[70px] phone:top-[25px] phone:left-[30px]">
+                    <div className="z-0 bg-grey_text  dark:flex rounded-full phone:w-[175px] phone:h-[175px] laptop:h-[350px] laptop:w-[343px] absolute laptop:top-[70px] laptop:left-[70px] phone:top-[25px] phone:left-[30px]">
                       <svg
                         width="342"
                         height="345"

@@ -204,7 +204,7 @@ export const projects = [
     index: 7,
     id: 17,
     name: "Pokemon Webapp",
-    image: "/assets/pokemon.jpeg",
+    image: "/assets/pokemon.png",
     propertyUrl: "/property",
     frontend_tech: [
       { name: "HTML", image: "/assets/skills/html.png" },
