@@ -10,13 +10,9 @@ const Main = () => {
   return (
     <div className="relative xsPhone:overflow-auto xsPhone:h-screen phone:min-h-screen phone:overflow-hidden">
       <Navbar project={project} setProject={setProject} />
-      {project ? (
-        <div className="h-full py-10 flex items-start justify-center overflow-y-auto">
-          <Projects />
-        </div>
-      ) : (
-        <Hero />
-      )}
+      <div className="h-full -z-1 py-10 flex items-start justify-center overflow-y-auto overflow-x-hidden">
+        {project ? <Projects /> : <Hero />}
+      </div>
     </div>
   );
 };
