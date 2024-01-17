@@ -81,7 +81,7 @@ const Hero = () => {
             className="flex"
           >
             <div className="flex tablet:gap-4 xsPhone:gap-2">
-              <p className="uppercase font-main-font xsPhone:text-[12px] phone:text-[16px] table:text-[30px]  text-grey_text dark:text-dark_mode_text">
+              <p className="flex uppercase font-main-font xsPhone:text-[12px] phone:text-[16px] table:text-[30px]  text-grey_text dark:text-dark_mode_text">
                 Front<span className="hidden tablet:block">-end</span>
               </p>
               <p className="font-main-font xsPhone:text-[12px] phone:text-[16px] table:text-[20px] text-grey_text mr-6 dark:text-dark_mode_text">
@@ -115,7 +115,7 @@ const Hero = () => {
             className="flex"
           >
             <div className="flex tablet:gap-6 xsPhone:gap-3">
-              <p className="uppercase font-main-font xsPhone:text-[12px] phone:text-[16px] table:text-[20px] text-grey_text dark:text-dark_mode_text">
+              <p className="flex uppercase font-main-font xsPhone:text-[12px] phone:text-[16px] table:text-[20px] text-grey_text dark:text-dark_mode_text">
                 Back<span className="hidden tablet:block">-end</span>
               </p>
               <p className="font-main-font xsPhone:text-[12px] phone:text-[16px] table:text-[20px] text-grey_text mr-6 dark:text-dark_mode_text">
