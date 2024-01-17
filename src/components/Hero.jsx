@@ -24,7 +24,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="pt-[2em] pb-[4em] laptop:pt-0 laptop:pb-0 phone:w-full phone:items-center laptop:items-start laptop:w-[1100px] laptop:h-[550px] tablet:w-[500px] h-full tablet:mt-[140px] mx-[15px] overflow-y-auto scrollbar-hide flex phone:flex-col-reverse items-center gap-14 phone:h-auto phone:gap-0  phone:justify-between laptop:flex-row laptop:justify-between justify-center">
+    <div className="overflow-x-hidden pt-[2em] pb-[4em] laptop:pt-0 laptop:pb-0 phone:w-full phone:items-center laptop:items-start laptop:w-[1100px] laptop:h-[550px] tablet:w-[500px] h-full tablet:mt-[140px] mx-[15px] overflow-y-auto scrollbar-hide flex phone:flex-col-reverse items-center gap-14 phone:h-auto phone:gap-0  phone:justify-between laptop:flex-row laptop:justify-between justify-center">
       {/* Left */}
       <div className="ml-1 phone:w-full  phone:max-w-[498px] xsPhone:w-screen xsPhone:h-[600px] xsPhone:gap-6 xsPhone:justify-center phone:h-[510px] tablet:max-w-[550px]  laptop:max-h-[520px] laptop:justify-between  flex flex-col phone:justify-start laptop:gap-4 phone:gap-8">
         {/* Header */}
@@ -82,7 +82,7 @@ const Hero = () => {
           >
             <div className="flex tablet:gap-4 xsPhone:gap-2">
               <p className="uppercase font-main-font xsPhone:text-[12px] phone:text-[16px] table:text-[30px]  text-grey_text dark:text-dark_mode_text">
-                Front-end
+                Front<span className="hidden tablet:block">-end</span>
               </p>
               <p className="font-main-font xsPhone:text-[12px] phone:text-[16px] table:text-[20px] text-grey_text mr-6 dark:text-dark_mode_text">
                 |
@@ -94,8 +94,8 @@ const Hero = () => {
                   key={skill.id}
                   src={skill.image}
                   alt={skill.name}
-                  width={28}
-                  height={28}
+                  width={30}
+                  height={30}
                   className="transition-transform transform hover:scale-125"
                 />
               ))}
@@ -116,7 +116,7 @@ const Hero = () => {
           >
             <div className="flex tablet:gap-6 xsPhone:gap-3">
               <p className="uppercase font-main-font xsPhone:text-[12px] phone:text-[16px] table:text-[20px] text-grey_text dark:text-dark_mode_text">
-                Back-end
+                Back<span className="hidden tablet:block">-end</span>
               </p>
               <p className="font-main-font xsPhone:text-[12px] phone:text-[16px] table:text-[20px] text-grey_text mr-6 dark:text-dark_mode_text">
                 |
@@ -244,14 +244,14 @@ const Hero = () => {
                 </Link>
               </motion.div>
               {/* Image and Ellipse */}
-              <div>
+              <div className="relative">
                 <Image
                   src={require("/public/assets/me.jpeg")}
                   alt="portrait-photo"
                   className=" z-10 object-cover ring-8 ring-gray-600 relative object-center rounded-full dark:ring-green_text phone:w-[175px] phone:h-[175px] laptop:h-[350px] laptop:w-[343px] transition-transform transform hover:scale-110"
                 />
                 {/* Ellipse */}
-                <div className="z-0 bg-grey_text dark:bg-green_text/75 rounded-full h-[350px] w-[343px] absolute top-[90px] left-[140px] hidden laptop:block">
+                <div className="z-0 bg-grey_text dark:bg-green_text/75 rounded-full h-[350px] w-[343px] absolute top-[70px] left-[70px] hidden laptop:block">
                   <svg
                     width="342"
                     height="345"
