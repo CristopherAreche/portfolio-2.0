@@ -220,8 +220,7 @@ export const projects = [
     ],
     description:
       "This was built using ReactJS and is hosted on Firebase. Users are able to search properties based on an address, city, or zip code to retrieve a list of active properties currently for sale. You will be able to view property information as well as the specific location of the property integrated with the Google Maps API.",
-    deployment:
-      "https://pokemon-website-2-0-ip6qm4ifz-cristopherareche.vercel.app/",
+    deployment: "https://pokemon-website-2-0.vercel.app/",
     sourceCode: "https://github.com/CristopherAreche/pokemon-website",
   },
 ];
