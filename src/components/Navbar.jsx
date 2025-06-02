@@ -21,7 +21,7 @@ const Navbar = ({ project, setProject }) => {
         ease: "easeIn",
         duration: 0.8,
       }}
-      className="z-50 w-full absolute xsPhone:top-[92vh] tablet:top-0  tablet:pt-[71px] tablet:pb-6 laptop:bg-light_text dark:laptop:bg-black"
+      className="z-50 w-full absolute xsPhone:top-[2vh] tablet:top-0  tablet:pt-[71px] tablet:pb-6 laptop:bg-light_text dark:laptop:bg-black"
     >
       <div className="flex justify-center items-center w-full h-full transition-transform transform hover:scale-95">
         <div

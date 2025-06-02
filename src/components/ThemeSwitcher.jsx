@@ -1,11 +1,18 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BsSun } from "react-icons/bs";
 import { RiMoonClearFill } from "react-icons/ri";
 import { useTheme } from "next-themes";
 
 const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <div

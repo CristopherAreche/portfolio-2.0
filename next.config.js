@@ -1,9 +1,5 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    serverActions: true,
-  },
-};
+const nextConfig = {};
 const withImages = require("next-images");
 module.exports = withImages();
 
