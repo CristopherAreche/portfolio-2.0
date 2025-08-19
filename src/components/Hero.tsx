@@ -60,9 +60,9 @@ const Hero = () => {
           className="xsPhone:px-[15px] laptop:text-start laptop:px-0 phone:text-[16px] tablet:text-[20px] text-grey_text dark:text-dark_mode_text phone:text-center"
         >
           driven by the desire to bring ideas to life on the internet. Over
-          time, I've expanded my expertise to designing and building scalable
-          applications, always aiming to create solutions that are both reliable
-          and intuitive.
+          time, I&apos;ve expanded my expertise to designing and building
+          scalable applications, always aiming to create solutions that are both
+          reliable and intuitive.
           <br />
           <br />I enjoy the challenge of combining clean architecture,
           performance, and user-focused design to deliver meaningful digital
