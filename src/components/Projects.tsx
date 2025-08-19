@@ -1,5 +1,5 @@
 import React from "react";
-import { projects } from "../utils/Object";
+import { projects } from "../utils/data";
 import ProjectItem from "./ProjectItem";
 
 const Projects = () => {
@@ -19,13 +19,12 @@ const Projects = () => {
           sourceCode,
         }) => (
           <ProjectItem
-            key={index}
+            key={id}
             id={id}
             name={name}
             image={image}
             propertyUrl={propertyUrl}
             deployment={deployment}
-            projects={projects}
             description={description}
             sourceCode={sourceCode}
             frontend_tech={frontend_tech}

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { backEndSkills, frontEndSkills } from "@/utils/Object";
+import { backEndSkills, frontEndSkills } from "@/utils/data";
 import { FaFileAlt } from "react-icons/fa";
 import { FaCopy } from "react-icons/fa";
 import Link from "next/link";
-import Ellipse from "./Ellipse";
 import clipboard from "clipboard-copy";
-import { motion } from "framer-motion";
+import { motion, HTMLMotionProps } from "framer-motion";
 
 const Hero = () => {
   const [isCopied, setIsCopied] = useState(false);
@@ -44,7 +43,7 @@ const Hero = () => {
             Hi, I&apos;M <span className="text-[#53E767]">Cristopher</span>
           </div>
           <h1 className="xsPhone:px-[15px] text-center laptop:px-0 tablet:text-center laptop:text-start uppercase font-main-font font-normal  xsPhone:text-[30px] phone:text-[38px] text-grey_text dark:text-dark_mode_text">
-            A Front-End Developer
+            A Software Engineer
           </h1>
         </motion.div>
         {/* Description */}
@@ -60,10 +59,14 @@ const Hero = () => {
           }}
           className="xsPhone:px-[15px] laptop:text-start laptop:px-0 phone:text-[16px] tablet:text-[20px] text-grey_text dark:text-dark_mode_text phone:text-center"
         >
-          I enjoy creating things that live on the internet. I learned web
-          development because I wanted to have the ability to create useful and
-          attractive things online. I love the idea of being able to bring an
-          idea to life and share it with the world through the web.
+          driven by the desire to bring ideas to life on the internet. Over
+          time, I've expanded my expertise to designing and building scalable
+          applications, always aiming to create solutions that are both reliable
+          and intuitive.
+          <br />
+          <br />I enjoy the challenge of combining clean architecture,
+          performance, and user-focused design to deliver meaningful digital
+          experiences.
         </motion.p>
         {/* Tech Stack */}
         <div className="flex flex-col xsPhone:items-start laptop:items-start gap-3 xsPhone:px-[15px] laptop:px-0">
@@ -81,14 +84,14 @@ const Hero = () => {
             className="flex"
           >
             <div className="flex tablet:gap-4 xsPhone:gap-2">
-              <p className="flex uppercase font-main-font xsPhone:text-[12px] phone:text-[16px] table:text-[30px]  text-grey_text dark:text-dark_mode_text">
+              <p className="flex uppercase font-main-font xsPhone:text-[12px] phone:text-[16px] tablet:text-[20px] text-grey_text dark:text-dark_mode_text">
                 Front<span className="hidden tablet:block">-end</span>
               </p>
-              <p className="font-main-font xsPhone:text-[12px] phone:text-[16px] table:text-[20px] text-grey_text mr-6 dark:text-dark_mode_text">
+              <p className="font-main-font xsPhone:text-[12px] phone:text-[16px] tablet:text-[20px] text-grey_text mr-6 dark:text-dark_mode_text">
                 |
               </p>
             </div>
-            <div className="flex gap-[10px] ">
+            <div className="flex gap-[10px]">
               {frontEndSkills?.map((skill) => (
                 <Image
                   key={skill.id}
@@ -96,7 +99,7 @@ const Hero = () => {
                   alt={skill.name}
                   width={30}
                   height={30}
-                  className="transition-transform transform hover:scale-125"
+                  className="phone:h-[28px] transition-transform transform hover:scale-125"
                 />
               ))}
             </div>
@@ -114,11 +117,11 @@ const Hero = () => {
             }}
             className="flex"
           >
-            <div className="flex tablet:gap-6 xsPhone:gap-3">
-              <p className="flex uppercase font-main-font xsPhone:text-[12px] phone:text-[16px] table:text-[20px] text-grey_text dark:text-dark_mode_text">
+            <div className="flex tablet:gap-4 xsPhone:gap-2">
+              <p className="flex uppercase font-main-font xsPhone:text-[12px] phone:text-[16px] tablet:text-[20px] text-grey_text dark:text-dark_mode_text">
                 Back<span className="hidden tablet:block">-end</span>
               </p>
-              <p className="font-main-font xsPhone:text-[12px] phone:text-[16px] table:text-[20px] text-grey_text mr-6 dark:text-dark_mode_text">
+              <p className="font-main-font xsPhone:text-[12px] phone:text-[16px] tablet:text-[20px] text-grey_text mr-6 dark:text-dark_mode_text">
                 |
               </p>
             </div>
@@ -130,7 +133,7 @@ const Hero = () => {
                   alt={skill.name}
                   width={30}
                   height={30}
-                  className="phone:h-[28] transition-transform transform hover:scale-125"
+                  className="phone:h-[28px] transition-transform transform hover:scale-125"
                 />
               ))}
             </div>
@@ -235,10 +238,13 @@ const Hero = () => {
                   href={
                     "https://www.linkedin.com/in/cristopher-areche-guillen-01a603186/"
                   }
+                  aria-label="Visit LinkedIn profile"
                 >
                   <Image
-                    src={require("/public/assets/linkedin.svg")}
-                    alt="portrait-photo"
+                    src="/assets/linkedin.svg"
+                    alt="LinkedIn icon"
+                    width={90}
+                    height={90}
                     className="animation-pulse laptop:w-[90px] laptop:h-[90px] cursor-pointer transition-transform transform hover:scale-125"
                   />
                 </Link>
@@ -246,8 +252,10 @@ const Hero = () => {
               {/* Image and Ellipse */}
               <div className="relative">
                 <Image
-                  src={require("/public/assets/me.jpeg")}
-                  alt="portrait-photo"
+                  src="/assets/me.jpeg"
+                  alt="Portrait photo of Cristopher"
+                  width={343}
+                  height={350}
                   className=" z-10 object-cover ring-8 ring-gray-600 relative object-center rounded-full dark:ring-green_text phone:w-[175px] phone:h-[175px] laptop:h-[350px] laptop:w-[343px] transition-transform transform hover:scale-110"
                 />
                 {/* Ellipse */}
@@ -278,10 +286,13 @@ const Hero = () => {
                 <Link
                   target="_blank"
                   href={"https://github.com/CristopherAreche?tab=repositories"}
+                  aria-label="Visit GitHub profile"
                 >
                   <Image
-                    src={require("/public/assets/github.svg")}
-                    alt="portrait-photo"
+                    src="/assets/github.svg"
+                    alt="GitHub icon"
+                    width={90}
+                    height={90}
                     className=" animate-pulse rounded-full laptop:w-[90px] laptop:h-[90px] phone:w-[44px] phone:h-[44px] cursor-pointer transition-transform transform hover:scale-125"
                   />
                 </Link>

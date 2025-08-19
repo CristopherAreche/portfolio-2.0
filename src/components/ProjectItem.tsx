@@ -5,9 +5,9 @@ import { TbWorldCode } from "react-icons/tb";
 import { TbWorldOff } from "react-icons/tb";
 import CustomLink from "./CustomLink";
 import { motion } from "framer-motion";
+import { ProjectItemProps } from "@/types";
 
 const ProjectItem = ({
-  index,
   id,
   name,
   image,
@@ -16,7 +16,7 @@ const ProjectItem = ({
   description,
   deployment,
   sourceCode,
-}) => {
+}: ProjectItemProps) => {
   const isOddId = id % 2 !== 0;
   return (
     <>
@@ -31,7 +31,6 @@ const ProjectItem = ({
             ease: "easeIn",
             duration: 4,
           }}
-          key={index}
           className="xsPhone:w-[324px] tablet:w-full tablet:gap-8 tablet:h-[300px] gap-2  dark:shadow-none flex flex-col md:flex-row items-center justify-between"
         >
           <div className="flex flex-col h-full">
@@ -101,11 +100,11 @@ const ProjectItem = ({
             >
               <div className="flex gap-4 mb-4">
                 {frontend_tech &&
-                  frontend_tech.map(({ index, name, image }) => (
+                  frontend_tech.map(({ name, image }) => (
                     <Image
                       width={30}
                       height={30}
-                      key={index}
+                      key={name}
                       src={image}
                       alt={name}
                       className="transition-transform transform hover:scale-125"
@@ -114,11 +113,11 @@ const ProjectItem = ({
               </div>
               <div className="flex gap-4">
                 {backend_tech &&
-                  backend_tech.map(({ index, name, image }) => (
+                  backend_tech.map(({ name, image }) => (
                     <Image
                       width={30}
                       height={30}
-                      key={index}
+                      key={name}
                       src={image}
                       alt={name}
                       className="transition-transform transform hover:scale-125"
@@ -139,7 +138,6 @@ const ProjectItem = ({
             ease: "easeIn",
             duration: 0.1,
           }}
-          key={index}
           className="xsPhone:w-[324px] tablet:w-full tablet:gap-8 tablet:h-[300px] gap-2  dark:shadow-none flex flex-col-reverse md:flex-row items-center justify-between"
         >
           {/* Name and description */}
@@ -164,12 +162,12 @@ const ProjectItem = ({
             >
               <div className="flex gap-4 mb-4">
                 {frontend_tech &&
-                  frontend_tech.map(({ index, name, image }) => (
+                  frontend_tech.map(({ name, image }) => (
                     <Image
                       className="object-cover object-center transition-transform transform hover:scale-125"
                       width={30}
                       height={30}
-                      key={index}
+                      key={name}
                       src={image}
                       alt={name}
                     />
@@ -177,11 +175,11 @@ const ProjectItem = ({
               </div>
               <div className="flex gap-4">
                 {backend_tech &&
-                  backend_tech.map(({ index, name, image }) => (
+                  backend_tech.map(({ name, image }) => (
                     <Image
                       width={30}
                       height={30}
-                      key={index}
+                      key={name}
                       src={image}
                       alt={name}
                       className="transition-transform transform hover:scale-125"
@@ -215,7 +213,7 @@ const ProjectItem = ({
                     Source Code
                   </p>
                 </Link>
-                <CustomLink href={deployment} deployment={deployment} />
+                <CustomLink deployment={deployment} />
               </div>
             </div>
           </div>

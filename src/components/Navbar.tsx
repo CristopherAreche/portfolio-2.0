@@ -4,8 +4,9 @@ import ThemeSwitcher from "./ThemeSwitcher";
 import { FaCode } from "react-icons/fa6";
 import { FaHome } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { NavbarProps } from "@/types";
 
-const Navbar = ({ project, setProject }) => {
+const Navbar = ({ project, setProject }: NavbarProps) => {
   const handleComponent = () => {
     setProject(!project);
   };

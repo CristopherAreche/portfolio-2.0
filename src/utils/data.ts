@@ -1,8 +1,6 @@
-import { AiOutlineMail } from "react-icons/ai";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { RiTwitterXFill } from "react-icons/ri";
+import { Skill, Tool, Social, Project } from "@/types";
 
-export const frontEndSkills = [
+export const frontEndSkills: Skill[] = [
   {
     id: 1,
     name: "HTML",
@@ -23,50 +21,27 @@ export const frontEndSkills = [
   { id: 6, name: "Bootstrap", image: "/assets/skills/bootstrap.svg" },
   { id: 7, name: "Tailwind", image: "/assets/skills/tailwind.png" },
 ];
-export const backEndSkills = [
+
+export const backEndSkills: Skill[] = [
   { id: 2, name: "Node", image: "/assets/skills/node.png" },
   { id: 3, name: "Sequelize", image: "/assets/skills/sequelize.svg" },
   { id: 4, name: "PostgreSQL", image: "/assets/skills/postgresql.svg" },
   { id: 5, name: "Postman", image: "/assets/skills/postman.svg" },
   { id: 1, name: "Next", image: "/assets/skills/nextjs.png" },
 ];
-export const tools = [
+
+export const tools: Tool[] = [
   { id: 13, name: "Github", image: "/assets/skills/github1.png" },
   { id: 14, name: "Git", image: "/assets/skills/git-icon.svg" },
   {
     id: 15,
     name: "VS Code",
-    image: "/../assets/skills/visual-studio-code.svg",
+    image: "/assets/skills/visual-studio-code.svg",
   },
-  { id: 16, name: "Trello", image: "/../assets/skills/trello.svg" },
+  { id: 16, name: "Trello", image: "/assets/skills/trello.svg" },
 ];
-export const social = [
-  {
-    id: 1,
-    name: "LinkedIn",
-    icon: <FaLinkedinIn />,
-    url: "https://www.linkedin.com/in/cristopher-areche-guillen-01a603186/",
-  },
-  {
-    id: 2,
-    name: "Github",
-    icon: <FaGithub />,
-    url: "https://github.com/CristopherAreche?tab=repositories",
-  },
-  {
-    id: 3,
-    name: "X",
-    icon: <RiTwitterXFill />,
-    url: "https://twitter.com/criistopher_ag",
-  },
-  {
-    id: 4,
-    name: "Gmail",
-    icon: <AiOutlineMail />,
-    url: "mailto:cristopherareche764@gmail.com",
-  },
-];
-export const projects = [
+
+export const projects: Project[] = [
   {
     index: 1,
     id: 11,
@@ -115,31 +90,9 @@ export const projects = [
     deployment: "https://dental-care-pi.vercel.app/",
     sourceCode: "https://github.com/CristopherAreche/DentalCare",
   },
-
   {
     index: 3,
     id: 13,
-    name: "Business Box",
-    image: "/assets/business_box.png",
-    propertyUrl: "/property",
-    frontend_tech: [
-      { name: "HTML", image: "/assets/skills/html.png" },
-      { name: "CSS", image: "/assets/skills/css.png" },
-      { name: "JavaScript", image: "/assets/skills/javascript.png" },
-      { name: "React", image: "/assets/skills/react.png" },
-      { name: "Redux-Toolkit", image: "/assets/skills/redux.svg" },
-      { name: "Tailwind", image: "/assets/skills/tailwind.png" },
-    ],
-    backend_tech: [{ id: 2, name: "Node", image: "/assets/skills/node.png" }],
-    description:
-      "This was built using ReactJS and is hosted on Firebase. Users are able to search properties based on an address, city, or zip code to retrieve a list of active properties currently for sale. You will be able to view property information as well as the specific location of the property integrated with the Google Maps API.",
-    deployment: "https://business-box-git-main-jdaniel96.vercel.app/",
-    sourceCode: "https://github.com/CristopherAreche/business-box",
-  },
-
-  {
-    index: 4,
-    id: 14,
     name: "Coffee Shop",
     image: "/assets/coffeeShop.png",
     propertyUrl: "/property",
@@ -161,10 +114,9 @@ export const projects = [
     deployment: "in progress",
     sourceCode: "https://github.com/CristopherAreche/business-box",
   },
-
   {
-    index: 5,
-    id: 15,
+    index: 4,
+    id: 14,
     name: "Workout Webapp",
     image: "/assets/workout.jpeg",
     propertyUrl: "/property",
@@ -180,10 +132,9 @@ export const projects = [
     deployment: "https://fitness-website-ashy-nine.vercel.app/",
     sourceCode: "https://github.com/CristopherAreche/Fitness-Website",
   },
-
   {
-    index: 6,
-    id: 16,
+    index: 5,
+    id: 15,
     name: "Rick and Morthy",
     image: "/assets/rickmorty_wp.jpeg",
     propertyUrl: "/property",
@@ -199,10 +150,9 @@ export const projects = [
     deployment: "https://cristopherareche.github.io/rick_and_morty_website/",
     sourceCode: "https://github.com/CristopherAreche/rick_and_morty_website",
   },
-
   {
-    index: 7,
-    id: 17,
+    index: 6,
+    id: 16,
     name: "Pokemon Webapp",
     image: "/assets/pokemon.png",
     propertyUrl: "/property",
