@@ -129,7 +129,7 @@ export const projects: Project[] = [
     ],
     description:
       "Welcome to my Fitness Webapp, your go-to destination for targeted workouts based on specific body regions. This user-friendly website offers a curated collection of exercises designed to tone and strengthen different parts of your body",
-    deployment: "https://fitness-website-ashy-nine.vercel.app/",
+    deployment: "in progress",
     sourceCode: "https://github.com/CristopherAreche/Fitness-Website",
   },
   {
@@ -149,28 +149,5 @@ export const projects: Project[] = [
       "Explore the quirky world of Rick and Morty through my React.js project, featuring an extensive character encyclopedia. Discover character traits, episode appearances, and filter options for status, species, and gender.",
     deployment: "https://cristopherareche.github.io/rick_and_morty_website/",
     sourceCode: "https://github.com/CristopherAreche/rick_and_morty_website",
-  },
-  {
-    index: 6,
-    id: 16,
-    name: "Pokemon Webapp",
-    image: "/assets/pokemon.png",
-    propertyUrl: "/property",
-    frontend_tech: [
-      { name: "HTML", image: "/assets/skills/html.png" },
-      { name: "CSS", image: "/assets/skills/css.png" },
-      { name: "JavaScript", image: "/assets/skills/javascript.png" },
-      { name: "React", image: "/assets/skills/react.png" },
-      { name: "Redux-Toolkit", image: "/assets/skills/redux.svg" },
-    ],
-    backend_tech: [
-      { name: "Node", image: "/assets/skills/node.png" },
-      { name: "Sequelize", image: "/assets/skills/sequelize.svg" },
-      { name: "PostgreSQL", image: "/assets/skills/postgresql.svg" },
-    ],
-    description:
-      "This was built using ReactJS and is hosted on Firebase. Users are able to search properties based on an address, city, or zip code to retrieve a list of active properties currently for sale. You will be able to view property information as well as the specific location of the property integrated with the Google Maps API.",
-    deployment: "https://pokemon-website-2-0.vercel.app/",
-    sourceCode: "https://github.com/CristopherAreche/pokemon-website",
   },
 ];
