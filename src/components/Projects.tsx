@@ -4,7 +4,7 @@ import ProjectItem from "./ProjectItem";
 
 const Projects = () => {
   return (
-    <div className="min-w-screen max-w-[900px] h-auto xsPhone:mt-[30px] tablet:mt-[140px] mx-[15px] overflow-y-auto scrollbar-hide flex flex-col items-center gap-14">
+    <div className="min-w-screen max-w-[900px] h-auto xsPhone:mt-[30px] tablet:mt-[140px] mx-[15px] overflow-x-hidden overflow-y-auto scrollbar-hide flex flex-col items-center gap-14">
       {projects.map(
         ({
           index,

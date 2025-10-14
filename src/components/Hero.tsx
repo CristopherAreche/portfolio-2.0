@@ -23,9 +23,9 @@ const Hero = () => {
   };
 
   return (
-    <div className="overflow-x-hidden pt-[2em] pb-[4em] laptop:pt-0 laptop:pb-0 phone:w-full phone:items-center laptop:items-start laptop:w-[1100px] laptop:h-[550px] tablet:w-[500px] h-full tablet:mt-[140px] mx-[15px] overflow-y-auto scrollbar-hide flex phone:flex-col-reverse items-center gap-14 phone:h-auto phone:gap-0  phone:justify-between laptop:flex-row laptop:justify-between justify-center">
+    <div className="w-full max-w-full overflow-x-hidden pt-[2em] pb-[4em] laptop:pt-0 laptop:pb-0 phone:w-full phone:items-center laptop:items-start laptop:w-[1100px] laptop:h-[550px] tablet:w-[500px] h-full tablet:mt-[140px] mx-[15px] overflow-y-auto scrollbar-hide flex phone:flex-col-reverse items-center gap-14 phone:h-auto phone:gap-0  phone:justify-between laptop:flex-row laptop:justify-between justify-center">
       {/* Left */}
-      <div className="ml-1 phone:w-full  phone:max-w-[498px] xsPhone:w-screen xsPhone:h-[600px] xsPhone:gap-6 xsPhone:justify-center phone:h-[510px] tablet:max-w-[550px]  laptop:max-h-[520px] laptop:justify-between  flex flex-col phone:justify-start laptop:gap-4 phone:gap-8">
+      <div className="ml-1 phone:w-full phone:max-w-[498px] xsPhone:w-full xsPhone:max-w-full xsPhone:h-[600px] xsPhone:gap-6 xsPhone:justify-center phone:h-[510px] tablet:max-w-[550px] laptop:max-h-[520px] laptop:justify-between flex flex-col phone:justify-start laptop:gap-4 phone:gap-8">
         {/* Header */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
@@ -204,7 +204,7 @@ const Hero = () => {
           ease: "easeIn",
           duration: 5,
         }}
-        className=" phone:flex phone:h-full phone:w-screen tablet:w-[520px] laptop:max-h-[520px]  xsPhone:hidden"
+        className="phone:flex phone:h-full phone:w-full phone:max-w-full tablet:w-[520px] laptop:max-h-[520px] xsPhone:hidden"
       >
         <div className="relative w-full flex laptop:pt-10 justify-center">
           <motion.div
@@ -245,7 +245,7 @@ const Hero = () => {
                     alt="LinkedIn icon"
                     width={90}
                     height={90}
-                    className="animation-pulse laptop:w-[90px] laptop:h-[90px] cursor-pointer transition-transform transform hover:scale-125"
+                    className="animate-pulse rounded-full laptop:w-[90px] laptop:h-[90px] phone:w-[44px] phone:h-[44px] cursor-pointer transition-transform transform hover:scale-125"
                   />
                 </Link>
               </motion.div>
