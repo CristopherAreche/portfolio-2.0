@@ -129,7 +129,7 @@ export const projects: Project[] = [
     ],
     description:
       "Welcome to my Fitness Webapp, your go-to destination for targeted workouts based on specific body regions. This user-friendly website offers a curated collection of exercises designed to tone and strengthen different parts of your body",
-    deployment: "in progress",
+    deployment: "https://fitness-website-ashy-nine.vercel.app/",
     sourceCode: "https://github.com/CristopherAreche/Fitness-Website",
   },
   {
