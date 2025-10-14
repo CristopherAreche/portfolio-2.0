@@ -93,8 +93,8 @@ export const projects: Project[] = [
   {
     index: 3,
     id: 13,
-    name: "Coffee Shop",
-    image: "/assets/coffeeShop.png",
+    name: "Pokemon Webapp",
+    image: "/assets/pokemon.png",
     propertyUrl: "/property",
     frontend_tech: [
       { name: "HTML", image: "/assets/skills/html.png" },
@@ -102,17 +102,16 @@ export const projects: Project[] = [
       { name: "JavaScript", image: "/assets/skills/javascript.png" },
       { name: "React", image: "/assets/skills/react.png" },
       { name: "Redux-Toolkit", image: "/assets/skills/redux.svg" },
-      { name: "Tailwind", image: "/assets/skills/tailwind.png" },
     ],
     backend_tech: [
-      { id: 2, name: "Node", image: "/assets/skills/node.png" },
-      { id: 3, name: "Sequelize", image: "/assets/skills/sequelize.svg" },
-      { id: 4, name: "PostgreSQL", image: "/assets/skills/postgresql.svg" },
+      { name: "Node", image: "/assets/skills/node.png" },
+      { name: "Sequelize", image: "/assets/skills/sequelize.svg" },
+      { name: "PostgreSQL", image: "/assets/skills/postgresql.svg" },
     ],
     description:
-      "An online hub for coffee enthusiasts, this website allows users to effortlessly explore and order diverse coffee blends. The user-friendly interface ensures a seamless experience, while a convenient order history feature lets users track and replicate their favorite coffee choices. Elevate your coffee experience with this stylish and user-centric web solution.",
-    deployment: "in progress",
-    sourceCode: "https://github.com/CristopherAreche/business-box",
+      "This was built using ReactJS and is hosted on Firebase. Users are able to search properties based on an address, city, or zip code to retrieve a list of active properties currently for sale. You will be able to view property information as well as the specific location of the property integrated with the Google Maps API.",
+    deployment: "https://pokemon-website-2-0.vercel.app/",
+    sourceCode: "https://github.com/CristopherAreche/pokemon-website",
   },
   {
     index: 4,
@@ -149,5 +148,53 @@ export const projects: Project[] = [
       "Explore the quirky world of Rick and Morty through my React.js project, featuring an extensive character encyclopedia. Discover character traits, episode appearances, and filter options for status, species, and gender.",
     deployment: "https://cristopherareche.github.io/rick_and_morty_website/",
     sourceCode: "https://github.com/CristopherAreche/rick_and_morty_website",
+  },
+  {
+    index: 6,
+    id: 16,
+    name: "Coffee Shop",
+    image: "/assets/coffeeShop.png",
+    propertyUrl: "/property",
+    frontend_tech: [
+      { name: "HTML", image: "/assets/skills/html.png" },
+      { name: "CSS", image: "/assets/skills/css.png" },
+      { name: "JavaScript", image: "/assets/skills/javascript.png" },
+      { name: "React", image: "/assets/skills/react.png" },
+      { name: "Redux-Toolkit", image: "/assets/skills/redux.svg" },
+      { name: "Tailwind", image: "/assets/skills/tailwind.png" },
+    ],
+    backend_tech: [
+      { id: 2, name: "Node", image: "/assets/skills/node.png" },
+      { id: 3, name: "Sequelize", image: "/assets/skills/sequelize.svg" },
+      { id: 4, name: "PostgreSQL", image: "/assets/skills/postgresql.svg" },
+    ],
+    description:
+      "An online hub for coffee enthusiasts, this website allows users to effortlessly explore and order diverse coffee blends. The user-friendly interface ensures a seamless experience, while a convenient order history feature lets users track and replicate their favorite coffee choices. Elevate your coffee experience with this stylish and user-centric web solution.",
+    deployment: "in progress",
+    sourceCode: "https://github.com/CristopherAreche/business-box",
+  },
+  {
+    index: 7,
+    id: 17,
+    name: "WON - Workout AI Planner",
+    image: "/assets/won.png",
+    propertyUrl: "/property",
+    frontend_tech: [
+      { name: "TypeScript", image: "/assets/skills/typescript.png" },
+      { name: "React", image: "/assets/skills/react.png" },
+      { name: "Next Js", image: "/assets/skills/nextjs.png" },
+      { name: "Tailwind", image: "/assets/skills/tailwind.png" },
+      { name: "Vercel", image: "/assets/skills/vercel.svg" },
+    ],
+    backend_tech: [
+      { id: 2, name: "Node", image: "/assets/skills/node.png" },
+      { name: "Prisma", image: "/assets/skills/prisma.png" },
+      { name: "Supabase", image: "/assets/skills/supabase.png" },
+      { id: 4, name: "PostgreSQL", image: "/assets/skills/postgresql.svg" },
+    ],
+    description:
+      "WON turns a quick onboarding into a training plan that actually fits your life. Pick your goal (fat loss, muscle, endurance), set your schedule and where you train (home or gym), and WON generates clear, ready-to-start workouts.",
+    deployment: "in progress",
+    sourceCode: "https://github.com/CristopherAreche/WON",
   },
 ];
