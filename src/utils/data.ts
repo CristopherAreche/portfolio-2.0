@@ -108,9 +108,10 @@ export const projects: Project[] = [
       { name: "Prisma", image: "/assets/skills/prisma.png" },
       { name: "Supabase", image: "/assets/skills/supabase.png" },
       { name: "PostgreSQL", image: "/assets/skills/postgresql.svg" },
+      { name: "Vercel", image: "/assets/skills/vercel.svg" },
     ],
     description:
-      "This was built using NextJS, Prisma, Supabase and Postgresql. Users are able to search properties based on an address, city, or zip code to retrieve a list of active properties currently for sale. You will be able to view property information as well as the specific location of the property integrated with the Google Maps API.",
+      "Pokemon Fullstack App - Browse all 151 original Pokemon with search/filter, create custom Pokemon with file uploads, and enjoy a beautiful responsive design. Built with Next.js 15, TypeScript, Supabase, and authentic Pokemon styling. Features pagination, real-time search, and smooth animations!",
     deployment: "https://pokemon-eta-swart.vercel.app/",
     sourceCode: "https://github.com/CristopherAreche/Pokemon",
   },
