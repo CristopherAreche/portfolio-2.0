@@ -105,13 +105,14 @@ export const projects: Project[] = [
     ],
     backend_tech: [
       { name: "Node", image: "/assets/skills/node.png" },
-      { name: "Sequelize", image: "/assets/skills/sequelize.svg" },
+      { name: "Prisma", image: "/assets/skills/prisma.png" },
+      { name: "Supabase", image: "/assets/skills/supabase.png" },
       { name: "PostgreSQL", image: "/assets/skills/postgresql.svg" },
     ],
     description:
-      "This was built using ReactJS and is hosted on Firebase. Users are able to search properties based on an address, city, or zip code to retrieve a list of active properties currently for sale. You will be able to view property information as well as the specific location of the property integrated with the Google Maps API.",
-    deployment: "https://pokemon-website-2-0.vercel.app/",
-    sourceCode: "https://github.com/CristopherAreche/pokemon-website",
+      "This was built using NextJS, Prisma, Supabase and Postgresql. Users are able to search properties based on an address, city, or zip code to retrieve a list of active properties currently for sale. You will be able to view property information as well as the specific location of the property integrated with the Google Maps API.",
+    deployment: "https://pokemon-eta-swart.vercel.app/",
+    sourceCode: "https://github.com/CristopherAreche/Pokemon",
   },
   {
     index: 4,
