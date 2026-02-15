@@ -1,11 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BsSun } from "react-icons/bs";
 import { RiMoonClearFill } from "react-icons/ri";
 import { useTheme } from "next-themes";
 
 const ThemeSwitcher = () => {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const ThemeSwitcher = () => {
 
   if (!mounted) return null;
 
-  const isDark = theme === "dark";
+  const isDark = resolvedTheme === "dark";
 
   return (
     <button
@@ -28,12 +28,12 @@ const ThemeSwitcher = () => {
       {isDark ? (
         <BsSun
           aria-hidden="true"
-          className="text-yellow-400 font-bold h-30 w-30 transition-transform transform hover:scale-125"
+          className="text-yellow-400 font-bold h-5 w-5 transition-transform transform hover:scale-125"
         />
       ) : (
         <RiMoonClearFill
           aria-hidden="true"
-          className="text-grey_text h-30 w-30 transition-transform transform hover:scale-125"
+          className="text-grey_text h-5 w-5 transition-transform transform hover:scale-125"
         />
       )}
     </button>

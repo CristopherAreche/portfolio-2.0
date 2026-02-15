@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import CustomLink from "./CustomLink";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ProjectItemProps } from "@/types";
 import SkillIcon from "./SkillIcon";
 
@@ -18,19 +18,55 @@ const ProjectItem = ({
   sourceCode,
 }: ProjectItemProps) => {
   const isOddId = id % 2 !== 0;
+  const shouldReduceMotion = useReducedMotion();
+
+  const enterFromRight = shouldReduceMotion
+    ? {}
+    : {
+        initial: { x: 100, opacity: 0 },
+        animate: { x: 0, opacity: 1 },
+        transition: {
+          delay: 0.2,
+          x: { type: "tween", stiffness: 60 },
+          opacity: { duration: 1 },
+          ease: "easeIn",
+          duration: 0.8,
+        },
+      };
+
+  const enterFromLeft = shouldReduceMotion
+    ? {}
+    : {
+        initial: { x: -100, opacity: 0 },
+        whileInView: { x: 0, opacity: 1 },
+        transition: {
+          delay: 0.1,
+          x: { type: "tween", stiffness: 60 },
+          opacity: { duration: 1 },
+          ease: "easeIn",
+          duration: 0.1,
+        },
+      };
+
+  const techMotion = shouldReduceMotion
+    ? {}
+    : {
+        initial: { x: 50, opacity: 0 },
+        whileInView: { x: 0, opacity: 1 },
+        transition: {
+          delay: 0.1,
+          x: { type: "spring", stiffness: 60 },
+          opacity: { duration: 1 },
+          ease: "easeIn",
+          duration: 0.1,
+        },
+      };
+
   return (
     <article aria-label={`Project: ${name}`}>
       {isOddId ? (
         <motion.div
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{
-            delay: 0.2,
-            x: { type: "tween", stiffness: 60 },
-            opacity: { duration: 1 },
-            ease: "easeIn",
-            duration: 0.8,
-          }}
+          {...enterFromRight}
           className="xsPhone:w-[324px] tablet:w-full tablet:gap-8 tablet:h-[300px] gap-2 dark:shadow-none flex flex-col md:flex-row items-center justify-between"
         >
           <div className="flex flex-col h-full">
@@ -39,6 +75,7 @@ const ProjectItem = ({
               src={image}
               width={324}
               height={231}
+              sizes="(min-width: 1440px) 340px, (min-width: 768px) 40vw, 92vw"
               alt={`Screenshot of ${name} project`}
             />
             {/* Github and Deployment */}
@@ -50,6 +87,7 @@ const ProjectItem = ({
                 <Link
                   target="_blank"
                   href={sourceCode}
+                  rel="noopener noreferrer"
                   className="rounded-full gap-2 flex justify-center items-center font-main-font transition-transform transform hover:scale-90"
                   aria-label={`View ${name} source code on GitHub`}
                 >
@@ -74,17 +112,7 @@ const ProjectItem = ({
             <p className="tablet:mb-5 w-full tablet:h-[130px] text-left text-md py-3 text-grey_text dark:text-gray-100 overflow-hidden">
               {description}
             </p>
-            <motion.div
-              initial={{ x: 50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{
-                delay: 0.1,
-                x: { type: "spring", stiffness: 60 },
-                opacity: { duration: 1 },
-                ease: "easeIn",
-                duration: 0.1,
-              }}
-            >
+            <motion.div {...techMotion}>
               <div className="flex gap-4 mb-4">
                 {frontend_tech?.map(({ name, image }) => (
                   <SkillIcon key={name} name={name} image={image} />
@@ -100,15 +128,7 @@ const ProjectItem = ({
         </motion.div>
       ) : (
         <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{
-            delay: 0.1,
-            x: { type: "tween", stiffness: 60 },
-            opacity: { duration: 1 },
-            ease: "easeIn",
-            duration: 0.1,
-          }}
+          {...enterFromLeft}
           className="xsPhone:w-[324px] tablet:w-full tablet:gap-8 tablet:h-[300px] gap-2 dark:shadow-none flex flex-col-reverse md:flex-row items-center justify-between"
         >
           {/* Name and description */}
@@ -120,15 +140,7 @@ const ProjectItem = ({
               {description}
             </p>
             <motion.div
-              initial={{ x: 50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{
-                delay: 0.1,
-                x: { type: "spring", stiffness: 60 },
-                opacity: { duration: 1 },
-                ease: "easeIn",
-                duration: 0.1,
-              }}
+              {...techMotion}
               className="tablet:flex tablet:flex-col tablet:items-end"
             >
               <div className="flex gap-4 mb-4">
@@ -150,6 +162,7 @@ const ProjectItem = ({
               src={image}
               width={324}
               height={231}
+              sizes="(min-width: 1440px) 340px, (min-width: 768px) 40vw, 92vw"
               alt={`Screenshot of ${name} project`}
             />
             {/* Github and Deployment */}
@@ -161,6 +174,7 @@ const ProjectItem = ({
                 <Link
                   target="_blank"
                   href={sourceCode}
+                  rel="noopener noreferrer"
                   className="rounded-full gap-2 flex justify-center items-center font-main-font transition-transform transform hover:scale-90"
                   aria-label={`View ${name} source code on GitHub`}
                 >

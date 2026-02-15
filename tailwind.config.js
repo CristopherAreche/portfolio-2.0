@@ -16,7 +16,7 @@ module.exports = {
         laptop: "1440px",
       },
       fontFamily: {
-        "main-font": ["Oswald", "sans-serif"],
+        "main-font": ["var(--font-main)", "sans-serif"],
       },
       colors: {
         dark_mode_text: "#ecf0f3",

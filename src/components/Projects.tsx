@@ -1,4 +1,3 @@
-import React from "react";
 import { projects } from "../utils/data";
 import ProjectItem from "./ProjectItem";
 
@@ -6,7 +5,7 @@ const Projects = () => {
   return (
     <section
       aria-label="Projects"
-      className="min-w-screen max-w-[900px] h-auto xsPhone:mt-[30px] tablet:mt-[140px] mx-[15px] overflow-x-hidden overflow-y-auto scrollbar-hide flex flex-col items-center gap-14"
+      className="min-w-screen max-w-[900px] h-auto xsPhone:mt-[30px] tablet:mt-[140px] mx-[15px] overflow-x-hidden scrollbar-hide flex flex-col items-center gap-14"
     >
       <h2 className="sr-only">My Projects</h2>
       {projects.map(

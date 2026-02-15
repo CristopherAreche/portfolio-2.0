@@ -33,7 +33,7 @@ export const projects: Project[] = [
   {
     id: 1,
     name: "CRM",
-    image: "/assets/crm.jpeg",
+    image: "/assets/crm.webp",
     frontend_tech: [
       { name: "HTML", image: "/assets/skills/html.png" },
       { name: "CSS", image: "/assets/skills/css.png" },
@@ -49,13 +49,13 @@ export const projects: Project[] = [
     ],
     description:
       "Elevate your business management with this amazing CRM project, the all-in-one solution for sales, profiles, inventory, purchases, and VIP customer engagement. Streamline your operations and take control of your business success effortlessly.",
-    deployment: "https://crm-2-mocha.vercel.app/",
+    deployment: { status: "live", url: "https://crm-2-mocha.vercel.app/" },
     sourceCode: "https://github.com/CristopherAreche/CRM",
   },
   {
     id: 2,
     name: "Dental Care",
-    image: "/assets/DentalCare.png",
+    image: "/assets/DentalCare.webp",
     frontend_tech: [
       { name: "HTML", image: "/assets/skills/html.png" },
       { name: "CSS", image: "/assets/skills/css.png" },
@@ -71,13 +71,13 @@ export const projects: Project[] = [
     ],
     description:
       "I'm working on an app designed for dental healthcare centers to facilitate appointments with doctors. It consists of two sections: one for patients and another for doctors or administrators. The app manages patient appointments, maintains their medical history, creates digital odontograms for each patient, and keeps track of inventory records.",
-    deployment: "https://dental-care-pi.vercel.app/",
+    deployment: { status: "live", url: "https://dental-care-pi.vercel.app/" },
     sourceCode: "https://github.com/CristopherAreche/DentalCare",
   },
   {
     id: 3,
     name: "Pokemon Webapp",
-    image: "/assets/pokemon.png",
+    image: "/assets/pokemon.webp",
     frontend_tech: [
       { name: "HTML", image: "/assets/skills/html.png" },
       { name: "CSS", image: "/assets/skills/css.png" },
@@ -94,13 +94,16 @@ export const projects: Project[] = [
     ],
     description:
       "Pokemon Fullstack App - Browse all 151 original Pokemon with search/filter, create custom Pokemon with file uploads, and enjoy a beautiful responsive design. Built with Next.js 15, TypeScript, Supabase, and authentic Pokemon styling. Features pagination, real-time search, and smooth animations!",
-    deployment: "https://pokemon-eta-swart.vercel.app/",
+    deployment: {
+      status: "live",
+      url: "https://pokemon-eta-swart.vercel.app/",
+    },
     sourceCode: "https://github.com/CristopherAreche/Pokemon",
   },
   {
     id: 4,
     name: "Workout Webapp",
-    image: "/assets/workout.jpeg",
+    image: "/assets/workout.webp",
     frontend_tech: [
       { name: "HTML", image: "/assets/skills/html.png" },
       { name: "CSS", image: "/assets/skills/css.png" },
@@ -110,13 +113,16 @@ export const projects: Project[] = [
     ],
     description:
       "Welcome to my Fitness Webapp, your go-to destination for targeted workouts based on specific body regions. This user-friendly website offers a curated collection of exercises designed to tone and strengthen different parts of your body",
-    deployment: "https://fitness-website-ashy-nine.vercel.app/",
+    deployment: {
+      status: "live",
+      url: "https://fitness-website-ashy-nine.vercel.app/",
+    },
     sourceCode: "https://github.com/CristopherAreche/Fitness-Website",
   },
   {
     id: 5,
     name: "Rick and Morty",
-    image: "/assets/rickmorty_wp.jpeg",
+    image: "/assets/rickmorty_wp.webp",
     frontend_tech: [
       { name: "HTML", image: "/assets/skills/html.png" },
       { name: "CSS", image: "/assets/skills/css.png" },
@@ -126,13 +132,16 @@ export const projects: Project[] = [
     ],
     description:
       "Explore the quirky world of Rick and Morty through my React.js project, featuring an extensive character encyclopedia. Discover character traits, episode appearances, and filter options for status, species, and gender.",
-    deployment: "https://cristopherareche.github.io/rick_and_morty_website/",
+    deployment: {
+      status: "live",
+      url: "https://cristopherareche.github.io/rick_and_morty_website/",
+    },
     sourceCode: "https://github.com/CristopherAreche/rick_and_morty_website",
   },
   {
     id: 6,
     name: "Coffee Shop",
-    image: "/assets/coffeeShop.png",
+    image: "/assets/coffeeShop.webp",
     frontend_tech: [
       { name: "HTML", image: "/assets/skills/html.png" },
       { name: "CSS", image: "/assets/skills/css.png" },
@@ -148,13 +157,13 @@ export const projects: Project[] = [
     ],
     description:
       "An online hub for coffee enthusiasts, this website allows users to effortlessly explore and order diverse coffee blends. The user-friendly interface ensures a seamless experience, while a convenient order history feature lets users track and replicate their favorite coffee choices. Elevate your coffee experience with this stylish and user-centric web solution.",
-    deployment: "in progress",
+    deployment: { status: "in-progress" },
     sourceCode: "https://github.com/CristopherAreche/business-box",
   },
   {
     id: 7,
     name: "WON - Workout AI Planner",
-    image: "/assets/won.png",
+    image: "/assets/won.webp",
     frontend_tech: [
       { name: "TypeScript", image: "/assets/skills/typescript.png" },
       { name: "React", image: "/assets/skills/react.png" },
@@ -170,7 +179,7 @@ export const projects: Project[] = [
     ],
     description:
       "WON turns a quick onboarding into a training plan that actually fits your life. Pick your goal (fat loss, muscle, endurance), set your schedule and where you train (home or gym), and WON generates clear, ready-to-start workouts.",
-    deployment: "in progress",
+    deployment: { status: "in-progress" },
     sourceCode: "https://github.com/CristopherAreche/WON",
   },
 ];
