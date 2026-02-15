@@ -34,10 +34,10 @@ const Hero = () => {
   return (
     <section
       aria-label={t.hero.sectionLabel}
-      className="w-full max-w-full overflow-x-hidden pt-[2em] pb-[4em] laptop:pt-0 laptop:pb-0 phone:w-full phone:items-center laptop:items-start laptop:w-[1100px] laptop:h-[550px] tablet:w-[500px] h-full tablet:mt-[140px] mx-[15px] scrollbar-hide flex phone:flex-col-reverse items-center gap-14 phone:h-auto phone:gap-0 phone:justify-between laptop:flex-row laptop:justify-between justify-center"
+      className="w-full max-w-full overflow-x-hidden pt-[2em] pb-[4em] xsPhone:pb-6 phone:pb-6 laptop:pt-0 laptop:pb-0 phone:w-full phone:items-center laptop:items-start laptop:w-[1100px] laptop:h-[550px] tablet:w-[500px] h-full tablet:mt-[140px] mx-[15px] scrollbar-hide flex phone:flex-col-reverse items-center gap-14 phone:h-auto phone:gap-0 phone:justify-between laptop:flex-row laptop:justify-between justify-center"
     >
       {/* Left */}
-      <div className="ml-1 phone:w-full phone:max-w-[498px] xsPhone:w-full xsPhone:max-w-full xsPhone:h-[600px] xsPhone:gap-6 xsPhone:justify-center phone:h-[510px] tablet:max-w-[550px] laptop:max-h-[520px] laptop:justify-between flex flex-col phone:justify-start laptop:gap-4 phone:gap-8">
+      <div className="ml-1 phone:w-full phone:max-w-[498px] xsPhone:w-full xsPhone:max-w-full h-auto xsPhone:gap-6 xsPhone:justify-center tablet:max-w-[550px] laptop:max-h-[520px] laptop:justify-between flex flex-col phone:justify-start laptop:gap-4 phone:gap-8">
         {/* Header */}
         <motion.div
           initial={shouldReduceMotion ? false : { y: 20, opacity: 0 }}
@@ -105,7 +105,8 @@ const Hero = () => {
           >
             <div className="flex tablet:gap-4 xsPhone:gap-2">
               <p className="flex uppercase font-main-font xsPhone:text-[12px] phone:text-[16px] tablet:text-[20px] text-grey_text dark:text-dark_mode_text">
-                {t.hero.frontend}
+                <span className="tablet:hidden">FRONT</span>
+                <span className="hidden tablet:inline">{t.hero.frontend}</span>
               </p>
               <p className="font-main-font xsPhone:text-[12px] phone:text-[16px] tablet:text-[20px] text-grey_text mr-6 dark:text-dark_mode_text">
                 |
@@ -140,7 +141,8 @@ const Hero = () => {
           >
             <div className="flex tablet:gap-4 xsPhone:gap-2">
               <p className="flex uppercase font-main-font xsPhone:text-[12px] phone:text-[16px] tablet:text-[20px] text-grey_text dark:text-dark_mode_text">
-                {t.hero.backend}
+                <span className="tablet:hidden">BACK</span>
+                <span className="hidden tablet:inline">{t.hero.backend}</span>
               </p>
               <p className="font-main-font xsPhone:text-[12px] phone:text-[16px] tablet:text-[20px] text-grey_text mr-6 dark:text-dark_mode_text">
                 |
@@ -192,7 +194,7 @@ const Hero = () => {
           </motion.div>
         </div>
         {/* Email and CV */}
-        <div className="flex justify-start gap-6 xsPhone:px-[15px] laptop:px-0">
+        <div className="flex flex-wrap items-center justify-start gap-3 tablet:gap-6 xsPhone:px-[15px] laptop:px-0">
           {/* CV */}
           <motion.div
             initial={shouldReduceMotion ? false : { x: -30, opacity: 0 }}
@@ -219,7 +221,7 @@ const Hero = () => {
                 aria-hidden="true"
                 className="w-5 h-5 text-center dark:text-dark_mode_text"
               />
-              <p className="font-main-font text-[20px] dark:text-dark_mode_text">
+              <p className="font-main-font text-[16px] tablet:text-[20px] dark:text-dark_mode_text">
                 {t.hero.resume}
               </p>
             </Link>
@@ -252,7 +254,7 @@ const Hero = () => {
                 aria-hidden="true"
                 className="w-5 h-5 text-center dark:text-dark_mode_text hover:text-[#53E767] hover:dark:text-[#53E767]"
               />
-              <span className="font-main-font text-[20px] uppercase dark:text-dark_mode_text">
+              <span className="font-main-font text-[16px] tablet:text-[20px] uppercase dark:text-dark_mode_text">
                 {isCopied ? t.hero.copied : t.hero.email}
               </span>
             </button>
