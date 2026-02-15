@@ -1,5 +1,6 @@
 "use client";
 import { Component, ReactNode } from "react";
+import { useLanguage } from "@/app/language-provider";
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -10,8 +11,21 @@ interface ErrorBoundaryState {
   hasError: boolean;
 }
 
-class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  constructor(props: ErrorBoundaryProps) {
+interface ErrorText {
+  title: string;
+  description: string;
+  retry: string;
+}
+
+interface LocalizedErrorBoundaryProps extends ErrorBoundaryProps {
+  text: ErrorText;
+}
+
+class LocalizedErrorBoundary extends Component<
+  LocalizedErrorBoundaryProps,
+  ErrorBoundaryState
+> {
+  constructor(props: LocalizedErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false };
   }
@@ -30,16 +44,16 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
         this.props.fallback || (
           <div className="flex flex-col items-center justify-center min-h-[50vh] gap-4 p-8">
             <h2 className="text-2xl font-main-font text-grey_text dark:text-dark_mode_text">
-              Something went wrong
+              {this.props.text.title}
             </h2>
             <p className="text-grey_text dark:text-dark_mode_text/80">
-              Please try refreshing the page.
+              {this.props.text.description}
             </p>
             <button
               onClick={() => this.setState({ hasError: false })}
               className="px-6 py-2 text-sm font-main-font"
             >
-              Try Again
+              {this.props.text.retry}
             </button>
           </div>
         )
@@ -49,5 +63,15 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     return this.props.children;
   }
 }
+
+const ErrorBoundary = ({ children, fallback }: ErrorBoundaryProps) => {
+  const { t } = useLanguage();
+
+  return (
+    <LocalizedErrorBoundary text={t.errorBoundary} fallback={fallback}>
+      {children}
+    </LocalizedErrorBoundary>
+  );
+};
 
 export default ErrorBoundary;

@@ -6,6 +6,7 @@ import { Oswald } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import ParticlesBackground from "@/components/ParticlesBackground";
+import SkipToContentLink from "@/components/SkipToContentLink";
 import {
   SITE_URL,
   SITE_TITLE,
@@ -91,9 +92,7 @@ export default function RootLayout({
       <body className={`${oswald.variable} font-main-font dark:bg-dark_bg`}>
         <Providers>
           <Toaster position="top-center" />
-          <a href="#main-content" className="skip-to-content">
-            Skip to main content
-          </a>
+          <SkipToContentLink />
           <ParticlesBackground />
           <Navbar />
           <main id="main-content" className="relative min-h-screen pt-[56px]">

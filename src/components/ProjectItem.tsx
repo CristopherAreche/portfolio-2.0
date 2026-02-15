@@ -6,6 +6,7 @@ import CustomLink from "./CustomLink";
 import { motion, useReducedMotion } from "framer-motion";
 import { ProjectItemProps } from "@/types";
 import SkillIcon from "./SkillIcon";
+import { useLanguage } from "@/app/language-provider";
 
 const ProjectItem = ({
   id,
@@ -14,11 +15,14 @@ const ProjectItem = ({
   frontend_tech,
   backend_tech,
   description,
+  descriptionEs,
   deployment,
   sourceCode,
 }: ProjectItemProps) => {
   const isOddId = id % 2 !== 0;
   const shouldReduceMotion = useReducedMotion();
+  const { language, t } = useLanguage();
+  const projectDescription = language === "es" ? descriptionEs : description;
 
   const enterFromRight = shouldReduceMotion
     ? {}
@@ -63,7 +67,7 @@ const ProjectItem = ({
       };
 
   return (
-    <article aria-label={`Project: ${name}`}>
+    <article aria-label={t.projects.projectAria(name)}>
       {isOddId ? (
         <motion.div
           {...enterFromRight}
@@ -78,7 +82,6 @@ const ProjectItem = ({
               sizes="(min-width: 1440px) 340px, (min-width: 768px) 40vw, 92vw"
               alt={`Screenshot of ${name} project`}
             />
-            {/* Github and Deployment */}
             <div className="flex justify-between items-center mt-3">
               <h3 className="xsPhone:text-[25px] text-grey_text dark:text-green_text font-main-font p-0 m-0 xsPhone:block tablet:hidden">
                 {name}
@@ -89,14 +92,14 @@ const ProjectItem = ({
                   href={sourceCode}
                   rel="noopener noreferrer"
                   className="rounded-full gap-2 flex justify-center items-center font-main-font transition-transform transform hover:scale-90"
-                  aria-label={`View ${name} source code on GitHub`}
+                  aria-label={t.projects.sourceCodeAria(name)}
                 >
                   <FaGithub
                     aria-hidden="true"
                     className="w-[35px] h-[35px] text-grey_text dark:text-white"
                   />
                   <span className="text-[20px] dark:text-white uppercase hidden tablet:block">
-                    Source Code
+                    {t.projects.sourceCode}
                   </span>
                 </Link>
                 <CustomLink deployment={deployment} name={name} />
@@ -104,23 +107,22 @@ const ProjectItem = ({
             </div>
           </div>
 
-          {/* Name and description */}
           <div className="flex flex-col tablet:w-auto tablet:h-full">
             <h3 className="xsPhone:hidden tablet:block tablet:text-start text-[45px] font-main-font text-grey_text dark:text-green_text xl:text-left text-center">
               {name}
             </h3>
             <p className="tablet:mb-5 w-full tablet:h-[130px] text-left text-md py-3 text-grey_text dark:text-gray-100 overflow-hidden">
-              {description}
+              {projectDescription}
             </p>
             <motion.div {...techMotion}>
               <div className="flex gap-4 mb-4">
-                {frontend_tech?.map(({ name, image }) => (
-                  <SkillIcon key={name} name={name} image={image} />
+                {frontend_tech?.map(({ name: techName, image: techImage }) => (
+                  <SkillIcon key={techName} name={techName} image={techImage} />
                 ))}
               </div>
               <div className="flex gap-4">
-                {backend_tech?.map(({ name, image }) => (
-                  <SkillIcon key={name} name={name} image={image} />
+                {backend_tech?.map(({ name: techName, image: techImage }) => (
+                  <SkillIcon key={techName} name={techName} image={techImage} />
                 ))}
               </div>
             </motion.div>
@@ -131,31 +133,30 @@ const ProjectItem = ({
           {...enterFromLeft}
           className="xsPhone:w-[324px] tablet:w-full tablet:gap-8 tablet:h-[300px] gap-2 dark:shadow-none flex flex-col-reverse md:flex-row items-center justify-between"
         >
-          {/* Name and description */}
           <div className="flex flex-col tablet:w-auto tablet:h-full">
             <h3 className="xsPhone:hidden tablet:block tablet:text-end text-[45px] font-main-font text-grey_text dark:text-green_text text-center">
               {name}
             </h3>
             <p className="tablet:mb-5 tablet:text-right w-full tablet:h-[130px] text-left text-md py-3 text-grey_text dark:text-gray-100 overflow-hidden">
-              {description}
+              {projectDescription}
             </p>
             <motion.div
               {...techMotion}
               className="tablet:flex tablet:flex-col tablet:items-end"
             >
               <div className="flex gap-4 mb-4">
-                {frontend_tech?.map(({ name, image }) => (
-                  <SkillIcon key={name} name={name} image={image} />
+                {frontend_tech?.map(({ name: techName, image: techImage }) => (
+                  <SkillIcon key={techName} name={techName} image={techImage} />
                 ))}
               </div>
               <div className="flex gap-4">
-                {backend_tech?.map(({ name, image }) => (
-                  <SkillIcon key={name} name={name} image={image} />
+                {backend_tech?.map(({ name: techName, image: techImage }) => (
+                  <SkillIcon key={techName} name={techName} image={techImage} />
                 ))}
               </div>
             </motion.div>
           </div>
-          {/* Image */}
+
           <div className="flex flex-col h-full">
             <Image
               className="tablet:max-w-[340px] tablet:h-[270px] shadow-lg shadow-gray-400 dark:shadow-transparent rounded-xl border-2 border-black dark:border-white transition-transform transform hover:scale-90"
@@ -165,7 +166,6 @@ const ProjectItem = ({
               sizes="(min-width: 1440px) 340px, (min-width: 768px) 40vw, 92vw"
               alt={`Screenshot of ${name} project`}
             />
-            {/* Github and Deployment */}
             <div className="flex justify-between items-center mt-3">
               <h3 className="xsPhone:text-[25px] text-grey_text dark:text-green_text font-main-font p-0 m-0 xsPhone:block tablet:hidden">
                 {name}
@@ -176,14 +176,14 @@ const ProjectItem = ({
                   href={sourceCode}
                   rel="noopener noreferrer"
                   className="rounded-full gap-2 flex justify-center items-center font-main-font transition-transform transform hover:scale-90"
-                  aria-label={`View ${name} source code on GitHub`}
+                  aria-label={t.projects.sourceCodeAria(name)}
                 >
                   <FaGithub
                     aria-hidden="true"
                     className="w-[35px] h-[35px] text-grey_text dark:text-white"
                   />
                   <span className="text-[20px] uppercase hidden tablet:block dark:text-white">
-                    Source Code
+                    {t.projects.sourceCode}
                   </span>
                 </Link>
                 <CustomLink deployment={deployment} name={name} />
