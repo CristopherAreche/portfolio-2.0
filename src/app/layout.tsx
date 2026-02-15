@@ -4,6 +4,7 @@ import { Toaster } from "react-hot-toast";
 import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import ParticlesBackground from "@/components/ParticlesBackground";
 import {
   SITE_URL,
   SITE_TITLE,
@@ -75,13 +76,14 @@ export default function RootLayout({
           <a href="#main-content" className="skip-to-content">
             Skip to main content
           </a>
+          <ParticlesBackground />
           <Navbar />
           <main
             id="main-content"
-            className="relative xsPhone:overflow-auto xsPhone:h-screen phone:min-h-screen phone:overflow-hidden"
+            className="relative xsPhone:overflow-auto xsPhone:h-screen phone:min-h-screen phone:overflow-hidden pt-[56px]"
           >
             <ErrorBoundary>
-              <div className="h-full py-20 flex items-start justify-center overflow-y-auto overflow-x-hidden">
+              <div className="h-full py-10 flex items-start justify-center overflow-y-auto overflow-x-hidden">
                 {children}
               </div>
             </ErrorBoundary>

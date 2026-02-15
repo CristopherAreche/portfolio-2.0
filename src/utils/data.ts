@@ -6,23 +6,27 @@ export const frontEndSkills: Skill[] = [
   { id: 3, name: "JavaScript", image: "/assets/skills/javascript.png" },
   { id: 4, name: "React", image: "/assets/skills/react.png" },
   { id: 5, name: "Redux-Toolkit", image: "/assets/skills/redux.svg" },
-  { id: 6, name: "Bootstrap", image: "/assets/skills/bootstrap.svg" },
-  { id: 7, name: "Tailwind", image: "/assets/skills/tailwind.png" },
+  { id: 6, name: "GraphQL", image: "/assets/skills/graphql-icon.webp" },
+  { id: 7, name: "Bootstrap", image: "/assets/skills/bootstrap.svg" },
+  { id: 8, name: "Tailwind", image: "/assets/skills/tailwind.png" },
 ];
 
 export const backEndSkills: Skill[] = [
   { id: 1, name: "Next", image: "/assets/skills/nextjs.png" },
   { id: 2, name: "Node", image: "/assets/skills/node.png" },
-  { id: 3, name: "Sequelize", image: "/assets/skills/sequelize.svg" },
-  { id: 4, name: "PostgreSQL", image: "/assets/skills/postgresql.svg" },
-  { id: 5, name: "Postman", image: "/assets/skills/postman.svg" },
+  { id: 3, name: "Supabase", image: "/assets/skills/supabase.png" },
+  { id: 4, name: "Sequelize", image: "/assets/skills/sequelize.svg" },
+  { id: 5, name: "PostgreSQL", image: "/assets/skills/postgresql.svg" },
+  { id: 6, name: "Postman", image: "/assets/skills/postman.svg" },
 ];
 
 export const tools: Tool[] = [
-  { id: 13, name: "Github", image: "/assets/skills/github1.png" },
-  { id: 14, name: "Git", image: "/assets/skills/git-icon.svg" },
-  { id: 15, name: "VS Code", image: "/assets/skills/visual-studio-code.svg" },
-  { id: 16, name: "Trello", image: "/assets/skills/trello.svg" },
+  { id: 1, name: "Git", image: "/assets/skills/git-icon.svg" },
+  { id: 2, name: "VS Code", image: "/assets/skills/visual-studio-code.svg" },
+  { id: 3, name: "Claude AI", image: "/assets/skills/claude-ai-icon.webp" },
+  { id: 4, name: "GitLab", image: "/assets/skills/gitlab.webp" },
+  { id: 5, name: "Trello", image: "/assets/skills/trello.svg" },
+  { id: 6, name: "Jira", image: "/assets/skills/atlassian-jira-icon.webp" },
 ];
 
 export const projects: Project[] = [

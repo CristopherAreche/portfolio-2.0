@@ -5,6 +5,7 @@ import { FaGithub } from "react-icons/fa";
 import CustomLink from "./CustomLink";
 import { motion } from "framer-motion";
 import { ProjectItemProps } from "@/types";
+import SkillIcon from "./SkillIcon";
 
 const ProjectItem = ({
   id,
@@ -86,26 +87,12 @@ const ProjectItem = ({
             >
               <div className="flex gap-4 mb-4">
                 {frontend_tech?.map(({ name, image }) => (
-                  <Image
-                    width={30}
-                    height={30}
-                    key={name}
-                    src={image}
-                    alt={name}
-                    className="transition-transform transform hover:scale-125"
-                  />
+                  <SkillIcon key={name} name={name} image={image} />
                 ))}
               </div>
               <div className="flex gap-4">
                 {backend_tech?.map(({ name, image }) => (
-                  <Image
-                    width={30}
-                    height={30}
-                    key={name}
-                    src={image}
-                    alt={name}
-                    className="transition-transform transform hover:scale-125"
-                  />
+                  <SkillIcon key={name} name={name} image={image} />
                 ))}
               </div>
             </motion.div>
@@ -146,26 +133,12 @@ const ProjectItem = ({
             >
               <div className="flex gap-4 mb-4">
                 {frontend_tech?.map(({ name, image }) => (
-                  <Image
-                    className="object-cover object-center transition-transform transform hover:scale-125"
-                    width={30}
-                    height={30}
-                    key={name}
-                    src={image}
-                    alt={name}
-                  />
+                  <SkillIcon key={name} name={name} image={image} />
                 ))}
               </div>
               <div className="flex gap-4">
                 {backend_tech?.map(({ name, image }) => (
-                  <Image
-                    width={30}
-                    height={30}
-                    key={name}
-                    src={image}
-                    alt={name}
-                    className="transition-transform transform hover:scale-125"
-                  />
+                  <SkillIcon key={name} name={name} image={image} />
                 ))}
               </div>
             </motion.div>
