@@ -17,46 +17,31 @@ export interface Social {
   url: string;
 }
 
-export interface ProjectTech {
-  name: string;
-  image: string;
-}
-
-export interface BackendTech {
-  id?: number;
+export interface TechItem {
   name: string;
   image: string;
 }
 
 export interface Project {
-  index: number;
   id: number;
   name: string;
   image: string;
-  propertyUrl: string;
-  frontend_tech: ProjectTech[];
-  backend_tech?: BackendTech[];
+  frontend_tech: TechItem[];
+  backend_tech?: TechItem[];
   description: string;
   deployment: string;
   sourceCode: string;
 }
 
 export interface ProjectItemProps {
-  index?: number;
   id: number;
   name: string;
   image: string;
-  propertyUrl: string;
-  frontend_tech: ProjectTech[];
-  backend_tech?: BackendTech[];
+  frontend_tech: TechItem[];
+  backend_tech?: TechItem[];
   description: string;
   deployment: string;
   sourceCode: string;
-}
-
-export interface NavbarProps {
-  project: boolean;
-  setProject: (project: boolean) => void;
 }
 
 export interface CustomLinkProps {

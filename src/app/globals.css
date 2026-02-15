@@ -27,9 +27,24 @@
   li {
     @apply cursor-pointer;
   }
-  button {
-    @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#53E767] to-[#3fce52] text-white;
-  }
+}
+
+/* Focus visible styles for keyboard navigation */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-green_text;
+}
+
+/* Skip to content link */
+.skip-to-content {
+  @apply absolute -top-full left-4 z-[100] bg-green_text text-white px-4 py-2 rounded-b-lg font-main-font transition-all;
+}
+.skip-to-content:focus {
+  @apply top-0;
+}
+
+/* Primary button style (opt-in instead of global button override) */
+.btn-primary {
+  @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#53E767] to-[#3fce52] text-white;
 }
 
 .animation-pulse {

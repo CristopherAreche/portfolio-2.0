@@ -4,14 +4,16 @@ import ProjectItem from "./ProjectItem";
 
 const Projects = () => {
   return (
-    <div className="min-w-screen max-w-[900px] h-auto xsPhone:mt-[30px] tablet:mt-[140px] mx-[15px] overflow-x-hidden overflow-y-auto scrollbar-hide flex flex-col items-center gap-14">
+    <section
+      aria-label="Projects"
+      className="min-w-screen max-w-[900px] h-auto xsPhone:mt-[30px] tablet:mt-[140px] mx-[15px] overflow-x-hidden overflow-y-auto scrollbar-hide flex flex-col items-center gap-14"
+    >
+      <h2 className="sr-only">My Projects</h2>
       {projects.map(
         ({
-          index,
           id,
           name,
           image,
-          propertyUrl,
           frontend_tech,
           backend_tech,
           description,
@@ -23,7 +25,6 @@ const Projects = () => {
             id={id}
             name={name}
             image={image}
-            propertyUrl={propertyUrl}
             deployment={deployment}
             description={description}
             sourceCode={sourceCode}
@@ -32,7 +33,7 @@ const Projects = () => {
           />
         )
       )}
-    </div>
+    </section>
   );
 };
 
