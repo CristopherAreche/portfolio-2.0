@@ -1,12 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { backEndSkills, frontEndSkills, tools } from "@/utils/data";
 import { FaFileAlt, FaCopy } from "react-icons/fa";
 import Link from "next/link";
 import clipboard from "clipboard-copy";
 import toast from "react-hot-toast";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/utils/constants";
 import SkillIcon from "./SkillIcon";
 
@@ -14,6 +14,7 @@ const DARK_ICONS = ["nextjs"];
 
 const Hero = () => {
   const [isCopied, setIsCopied] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   const handleCopyClick = async () => {
     try {
@@ -23,32 +24,33 @@ const Hero = () => {
       setTimeout(() => {
         setIsCopied(false);
       }, 2000);
-    } catch (error) {
+    } catch {
       toast.error("Failed to copy email. Please try manually.");
     }
   };
 
-  const needsDarkBg = (imagePath: string) =>
-    DARK_ICONS.some((icon) => imagePath.includes(icon));
-
   return (
     <section
       aria-label="About me"
-      className="w-full max-w-full overflow-x-hidden pt-[2em] pb-[4em] laptop:pt-0 laptop:pb-0 phone:w-full phone:items-center laptop:items-start laptop:w-[1100px] laptop:h-[550px] tablet:w-[500px] h-full tablet:mt-[140px] mx-[15px] overflow-y-auto scrollbar-hide flex phone:flex-col-reverse items-center gap-14 phone:h-auto phone:gap-0 phone:justify-between laptop:flex-row laptop:justify-between justify-center"
+      className="w-full max-w-full overflow-x-hidden pt-[2em] pb-[4em] laptop:pt-0 laptop:pb-0 phone:w-full phone:items-center laptop:items-start laptop:w-[1100px] laptop:h-[550px] tablet:w-[500px] h-full tablet:mt-[140px] mx-[15px] scrollbar-hide flex phone:flex-col-reverse items-center gap-14 phone:h-auto phone:gap-0 phone:justify-between laptop:flex-row laptop:justify-between justify-center"
     >
       {/* Left */}
       <div className="ml-1 phone:w-full phone:max-w-[498px] xsPhone:w-full xsPhone:max-w-full xsPhone:h-[600px] xsPhone:gap-6 xsPhone:justify-center phone:h-[510px] tablet:max-w-[550px] laptop:max-h-[520px] laptop:justify-between flex flex-col phone:justify-start laptop:gap-4 phone:gap-8">
         {/* Header */}
         <motion.div
-          initial={{ y: 20, opacity: 0 }}
+          initial={shouldReduceMotion ? false : { y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{
-            delay: 0.1,
-            x: { type: "spring", stiffness: 20 },
-            opacity: { duration: 1 },
-            ease: "easeIn",
-            duration: 0.5,
-          }}
+          transition={
+            shouldReduceMotion
+              ? { duration: 0 }
+              : {
+                  delay: 0.1,
+                  x: { type: "spring", stiffness: 20 },
+                  opacity: { duration: 1 },
+                  ease: "easeIn",
+                  duration: 0.5,
+                }
+          }
           className="flex flex-col phone:justify-center phone:items-center laptop:items-start"
         >
           <div className="xsPhone:px-[15px] xsPhone:text-center laptop:px-0 font-main-font font-normal xsPhone:text-[30px] phone:text-[38px] mb-4 text-start text-grey_text dark:text-dark_mode_text">
@@ -60,15 +62,19 @@ const Hero = () => {
         </motion.div>
         {/* Description */}
         <motion.p
-          initial={{ y: 10, opacity: 0 }}
+          initial={shouldReduceMotion ? false : { y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{
-            delay: 0.1,
-            x: { type: "spring", stiffness: 20 },
-            opacity: { duration: 1 },
-            ease: "easeIn",
-            duration: 0.8,
-          }}
+          transition={
+            shouldReduceMotion
+              ? { duration: 0 }
+              : {
+                  delay: 0.1,
+                  x: { type: "spring", stiffness: 20 },
+                  opacity: { duration: 1 },
+                  ease: "easeIn",
+                  duration: 0.8,
+                }
+          }
           className="xsPhone:px-[15px] laptop:text-start laptop:px-0 phone:text-[16px] tablet:text-[20px] text-grey_text dark:text-dark_mode_text phone:text-center"
         >
           driven by the desire to bring ideas to life on the internet. Over
@@ -84,15 +90,19 @@ const Hero = () => {
         <div className="flex flex-col xsPhone:items-start laptop:items-start gap-3 xsPhone:px-[15px] laptop:px-0">
           {/* frontend */}
           <motion.div
-            initial={{ x: 30, opacity: 0 }}
+            initial={shouldReduceMotion ? false : { x: 30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{
-              delay: 0.1,
-              x: { type: "spring", stiffness: 20 },
-              opacity: { duration: 1 },
-              ease: "easeIn",
-              duration: 0.8,
-            }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0 }
+                : {
+                    delay: 0.1,
+                    x: { type: "spring", stiffness: 20 },
+                    opacity: { duration: 1 },
+                    ease: "easeIn",
+                    duration: 0.8,
+                  }
+            }
             className="flex"
           >
             <div className="flex tablet:gap-4 xsPhone:gap-2">
@@ -115,15 +125,19 @@ const Hero = () => {
           </motion.div>
           {/* backend */}
           <motion.div
-            initial={{ x: -30, opacity: 0 }}
+            initial={shouldReduceMotion ? false : { x: -30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{
-              delay: 0.1,
-              x: { type: "spring", stiffness: 20 },
-              opacity: { duration: 1 },
-              ease: "easeIn",
-              duration: 0.8,
-            }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0 }
+                : {
+                    delay: 0.1,
+                    x: { type: "spring", stiffness: 20 },
+                    opacity: { duration: 1 },
+                    ease: "easeIn",
+                    duration: 0.8,
+                  }
+            }
             className="flex"
           >
             <div className="flex tablet:gap-4 xsPhone:gap-2">
@@ -149,15 +163,19 @@ const Hero = () => {
           </motion.div>
           {/* tools */}
           <motion.div
-            initial={{ x: 30, opacity: 0 }}
+            initial={shouldReduceMotion ? false : { x: 30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{
-              delay: 0.1,
-              x: { type: "spring", stiffness: 20 },
-              opacity: { duration: 1 },
-              ease: "easeIn",
-              duration: 0.8,
-            }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0 }
+                : {
+                    delay: 0.1,
+                    x: { type: "spring", stiffness: 20 },
+                    opacity: { duration: 1 },
+                    ease: "easeIn",
+                    duration: 0.8,
+                  }
+            }
             className="flex"
           >
             <div className="flex tablet:gap-4 xsPhone:gap-2">
@@ -170,11 +188,7 @@ const Hero = () => {
             </div>
             <div className="flex gap-[10px] items-center">
               {tools?.map((tool) => (
-                <SkillIcon
-                  key={tool.id}
-                  name={tool.name}
-                  image={tool.image}
-                />
+                <SkillIcon key={tool.id} name={tool.name} image={tool.image} />
               ))}
             </div>
           </motion.div>
@@ -183,15 +197,19 @@ const Hero = () => {
         <div className="flex justify-start gap-6 xsPhone:px-[15px] laptop:px-0">
           {/* CV */}
           <motion.div
-            initial={{ x: -30, opacity: 0 }}
+            initial={shouldReduceMotion ? false : { x: -30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{
-              delay: 0.1,
-              x: { type: "spring", stiffness: 20 },
-              opacity: { duration: 1 },
-              ease: "easeIn",
-              duration: 0.8,
-            }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0 }
+                : {
+                    delay: 0.1,
+                    x: { type: "spring", stiffness: 20 },
+                    opacity: { duration: 1 },
+                    ease: "easeIn",
+                    duration: 0.8,
+                  }
+            }
           >
             <Link
               href="/assets/CV.pdf"
@@ -201,7 +219,7 @@ const Hero = () => {
             >
               <FaFileAlt
                 aria-hidden="true"
-                className="w-18 h-21 text-center dark:text-dark_mode_text"
+                className="w-5 h-5 text-center dark:text-dark_mode_text"
               />
               <p className="font-main-font text-[20px] dark:text-dark_mode_text">
                 RESUME / CV
@@ -210,15 +228,19 @@ const Hero = () => {
           </motion.div>
           {/* Email */}
           <motion.div
-            initial={{ x: 30, opacity: 0 }}
+            initial={shouldReduceMotion ? false : { x: 30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{
-              delay: 0.1,
-              x: { type: "spring", stiffness: 20 },
-              opacity: { duration: 1 },
-              ease: "easeIn",
-              duration: 0.8,
-            }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0 }
+                : {
+                    delay: 0.1,
+                    x: { type: "spring", stiffness: 20 },
+                    opacity: { duration: 1 },
+                    ease: "easeIn",
+                    duration: 0.8,
+                  }
+            }
           >
             <button
               type="button"
@@ -228,7 +250,7 @@ const Hero = () => {
             >
               <FaCopy
                 aria-hidden="true"
-                className="w-18 h-21 text-center dark:text-dark_mode_text hover:text-[#53E767] hover:dark:text-[#53E767]"
+                className="w-5 h-5 text-center dark:text-dark_mode_text hover:text-[#53E767] hover:dark:text-[#53E767]"
               />
               <span className="font-main-font text-[20px] uppercase dark:text-dark_mode_text">
                 {isCopied ? "Copied!" : "Email"}
@@ -240,47 +262,60 @@ const Hero = () => {
 
       {/* Right */}
       <motion.div
-        initial={{ x: 20, opacity: 0 }}
+        initial={shouldReduceMotion ? false : { x: 20, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{
-          delay: 0.3,
-          x: { type: "spring", stiffness: 60 },
-          opacity: { duration: 1 },
-          ease: "easeIn",
-          duration: 1,
-        }}
+        transition={
+          shouldReduceMotion
+            ? { duration: 0 }
+            : {
+                delay: 0.3,
+                x: { type: "spring", stiffness: 60 },
+                opacity: { duration: 1 },
+                ease: "easeIn",
+                duration: 1,
+              }
+        }
         className="phone:flex phone:h-full phone:w-full phone:max-w-full tablet:w-[520px] laptop:max-h-[520px] xsPhone:hidden"
       >
         <div className="relative w-full flex laptop:pt-10 justify-center">
           <motion.div
-            initial={{ x: 100, opacity: 0 }}
+            initial={shouldReduceMotion ? false : { x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{
-              delay: 0.5,
-              x: { type: "spring", stiffness: 60 },
-              opacity: { duration: 0.6 },
-              ease: "easeIn",
-              duration: 1,
-            }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0 }
+                : {
+                    delay: 0.5,
+                    x: { type: "spring", stiffness: 60 },
+                    opacity: { duration: 0.6 },
+                    ease: "easeIn",
+                    duration: 1,
+                  }
+            }
           >
             <div className=" z-20 mb-10 laptop:h-[400px] flex">
               {/* LinkedIn */}
               <motion.div
-                initial={{ y: 100, opacity: 0 }}
+                initial={shouldReduceMotion ? false : { y: 100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{
-                  delay: 0.5,
-                  y: { type: "spring", stiffness: 60 },
-                  opacity: { duration: 1 },
-                  ease: "easeIn",
-                  duration: 1,
-                }}
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0 }
+                    : {
+                        delay: 0.5,
+                        y: { type: "spring", stiffness: 60 },
+                        opacity: { duration: 1 },
+                        ease: "easeIn",
+                        duration: 1,
+                      }
+                }
                 className="justify-center self-end"
               >
                 <Link
                   className="h-full"
                   target="_blank"
                   href={LINKEDIN_URL}
+                  rel="noopener noreferrer"
                   aria-label="Visit LinkedIn profile"
                 >
                   <Image
@@ -288,17 +323,18 @@ const Hero = () => {
                     alt="LinkedIn"
                     width={90}
                     height={90}
-                    className="animate-pulse rounded-full laptop:w-[90px] laptop:h-[90px] phone:w-[44px] phone:h-[44px] cursor-pointer transition-transform transform hover:scale-125"
+                    className="animate-pulse rounded-full laptop:w-[90px] laptop:h-[90px] phone:w-[44px] phone:h-[44px] cursor-pointer"
                   />
                 </Link>
               </motion.div>
               {/* Image and Ellipse */}
               <div className="relative">
                 <Image
-                  src="/assets/portrait.jpeg"
+                  src="/assets/portrait.webp"
                   alt="Portrait photo of Cristopher Areche"
                   width={343}
                   height={350}
+                  sizes="(min-width: 1440px) 343px, (min-width: 768px) 45vw, 175px"
                   priority
                   className=" z-10 object-cover ring-8 ring-gray-600 relative rounded-full dark:ring-green_text phone:w-[175px] phone:h-[175px] laptop:h-[350px] laptop:w-[343px] transition-transform transform hover:scale-110"
                 />
@@ -320,19 +356,24 @@ const Hero = () => {
               </div>
               {/* Github */}
               <motion.div
-                initial={{ y: -100, opacity: 0 }}
+                initial={shouldReduceMotion ? false : { y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{
-                  delay: 0.5,
-                  y: { type: "spring", stiffness: 60 },
-                  opacity: { duration: 1 },
-                  ease: "easeIn",
-                  duration: 1,
-                }}
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0 }
+                    : {
+                        delay: 0.5,
+                        y: { type: "spring", stiffness: 60 },
+                        opacity: { duration: 1 },
+                        ease: "easeIn",
+                        duration: 1,
+                      }
+                }
               >
                 <Link
                   target="_blank"
                   href={GITHUB_URL}
+                  rel="noopener noreferrer"
                   aria-label="Visit GitHub profile"
                 >
                   <Image
@@ -340,7 +381,7 @@ const Hero = () => {
                     alt="GitHub"
                     width={90}
                     height={90}
-                    className=" animate-pulse rounded-full laptop:w-[90px] laptop:h-[90px] phone:w-[44px] phone:h-[44px] cursor-pointer transition-transform transform hover:scale-125"
+                    className=" animate-pulse rounded-full laptop:w-[90px] laptop:h-[90px] phone:w-[44px] phone:h-[44px] cursor-pointer"
                   />
                 </Link>
               </motion.div>

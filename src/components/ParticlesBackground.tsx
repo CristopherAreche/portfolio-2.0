@@ -4,10 +4,13 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import type { ISourceOptions } from "@tsparticles/engine";
 import { useTheme } from "next-themes";
+import { useReducedMotion } from "framer-motion";
 
 const ParticlesBackground = () => {
   const [init, setInit] = useState(false);
-  const { theme } = useTheme();
+  const [isMobile, setIsMobile] = useState(false);
+  const { resolvedTheme } = useTheme();
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -15,23 +18,34 @@ const ParticlesBackground = () => {
     }).then(() => setInit(true));
   }, []);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const updateViewport = () => setIsMobile(mediaQuery.matches);
+
+    updateViewport();
+    mediaQuery.addEventListener("change", updateViewport);
+
+    return () => mediaQuery.removeEventListener("change", updateViewport);
+  }, []);
+
   const getOptions = useCallback((): ISourceOptions => {
-    const isDark = theme === "dark";
+    const isDark = resolvedTheme === "dark";
+
     return {
       background: { color: { value: "transparent" } },
-      fpsLimit: 60,
+      fpsLimit: isMobile ? 40 : 60,
       particles: {
         color: { value: isDark ? "#f8f8f8ff" : "#000000ff" },
         move: {
           enable: true,
-          speed: 0.6,
+          speed: isMobile ? 0.35 : 0.6,
           direction: "none" as const,
           random: true,
           straight: false,
           outModes: { default: "out" as const },
         },
         number: {
-          value: 90,
+          value: isMobile ? 45 : 90,
           density: { enable: true, width: 1920, height: 1080 },
         },
         opacity: {
@@ -51,13 +65,13 @@ const ParticlesBackground = () => {
       },
       detectRetina: true,
     };
-  }, [theme]);
+  }, [resolvedTheme, isMobile]);
 
-  if (!init) return null;
+  if (!init || shouldReduceMotion) return null;
 
   return (
     <Particles
-      key={theme}
+      key={`${resolvedTheme}-${isMobile}`}
       id="tsparticles"
       options={getOptions()}
       className="fixed inset-0 z-0 pointer-events-none"

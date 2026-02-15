@@ -18,10 +18,15 @@ const SkillIcon = ({
   const [showName, setShowName] = useState(false);
 
   return (
-    <div
-      className="relative flex items-center justify-center"
+    <button
+      type="button"
+      className="relative flex items-center justify-center rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green_text"
+      aria-label={name}
+      aria-pressed={showName}
       onMouseEnter={() => setShowName(true)}
       onMouseLeave={() => setShowName(false)}
+      onFocus={() => setShowName(true)}
+      onBlur={() => setShowName(false)}
       onClick={() => setShowName((prev) => !prev)}
     >
       {showName && (
@@ -41,10 +46,10 @@ const SkillIcon = ({
           alt={name}
           width={size}
           height={size}
-          className="phone:h-[28px] transition-transform transform hover:scale-125 cursor-pointer"
+          className="phone:h-[28px] transition-transform transform hover:scale-125"
         />
       </div>
-    </div>
+    </button>
   );
 };
 
