@@ -8,6 +8,7 @@ export interface UiTranslations {
     index: string;
     projects: string;
     languageLabel: string;
+    languageToggleLabel: string;
     english: string;
     spanish: string;
   };
