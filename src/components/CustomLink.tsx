@@ -1,8 +1,12 @@
 import Link from "next/link";
 import { TbWorldCode, TbWorldOff } from "react-icons/tb";
-import { CustomLinkProps } from "@/types";
 
-const CustomLink = ({ deployment }: CustomLinkProps) => {
+interface CustomLinkProps {
+  deployment: string;
+  name: string;
+}
+
+const CustomLink = ({ deployment, name }: CustomLinkProps) => {
   const isLinkDisabled = deployment === "in progress";
 
   return (
@@ -13,17 +17,28 @@ const CustomLink = ({ deployment }: CustomLinkProps) => {
     >
       {isLinkDisabled ? (
         <div className="flex gap-2 items-center justify-center font-main-font">
-          <TbWorldOff className="w-[35px] h-[35px] text-red-700" />
-          <p className="text-[20px] uppercase hidden tablet:block dark:text-white">
+          <TbWorldOff
+            aria-hidden="true"
+            className="w-[35px] h-[35px] text-red-700"
+          />
+          <span className="text-[20px] uppercase hidden tablet:block dark:text-white">
             in progress
-          </p>
+          </span>
         </div>
       ) : (
-        <Link href={deployment} className="flex gap-2" target="_blank">
-          <TbWorldCode className="w-[35px] h-[35px] text-grey_text dark:text-white" />
-          <p className="text-[20px] uppercase hidden tablet:block dark:text-white">
+        <Link
+          href={deployment}
+          target="_blank"
+          className="flex gap-2"
+          aria-label={`Visit ${name} live website`}
+        >
+          <TbWorldCode
+            aria-hidden="true"
+            className="w-[35px] h-[35px] text-grey_text dark:text-white"
+          />
+          <span className="text-[20px] uppercase hidden tablet:block dark:text-white">
             visit website
-          </p>
+          </span>
         </Link>
       )}
     </div>

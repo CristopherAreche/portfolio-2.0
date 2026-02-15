@@ -14,28 +14,29 @@ const ThemeSwitcher = () => {
 
   if (!mounted) return null;
 
+  const isDark = theme === "dark";
+
   return (
-    <div
+    <button
+      type="button"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       className={`${
-        theme === "dark" ? "dark bg-gray-400" : ""
-      } bg-light_bg dark:bg-grey_text text-dark_mode_text gap-3 text-xl h-[38px] w-[38px] flex justify-center rounded-full`}
+        isDark ? "dark bg-gray-400" : ""
+      } bg-light_bg dark:bg-grey_text text-dark_mode_text gap-3 text-xl h-[38px] w-[38px] flex justify-center items-center rounded-full shadow-none cursor-pointer`}
     >
-      {theme === "dark" ? (
-        <label
-          className="cursor-pointer flex justify-center items-center gap-2"
-          onClick={() => setTheme("light")}
-        >
-          <BsSun className="text-yellow-400 font-bold h-30 w-30 transition-transform transform hover:scale-125" />
-        </label>
+      {isDark ? (
+        <BsSun
+          aria-hidden="true"
+          className="text-yellow-400 font-bold h-30 w-30 transition-transform transform hover:scale-125"
+        />
       ) : (
-        <label
-          className="cursor-pointer flex justify-center items-center gap-2"
-          onClick={() => setTheme("dark")}
-        >
-          <RiMoonClearFill className="text-grey_text h-30 w-30 transition-transform transform hover:scale-125" />
-        </label>
+        <RiMoonClearFill
+          aria-hidden="true"
+          className="text-grey_text h-30 w-30 transition-transform transform hover:scale-125"
+        />
       )}
-    </div>
+    </button>
   );
 };
 

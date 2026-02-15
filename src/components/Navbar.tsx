@@ -4,15 +4,15 @@ import ThemeSwitcher from "./ThemeSwitcher";
 import { FaCode } from "react-icons/fa6";
 import { FaHome } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { NavbarProps } from "@/types";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const Navbar = ({ project, setProject }: NavbarProps) => {
-  const handleComponent = () => {
-    setProject(!project);
-  };
+const Navbar = () => {
+  const pathname = usePathname();
+  const isProjectsPage = pathname === "/projects";
 
   return (
-    <motion.div
+    <motion.nav
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{
@@ -22,7 +22,8 @@ const Navbar = ({ project, setProject }: NavbarProps) => {
         ease: "easeIn",
         duration: 0.8,
       }}
-      className="z-50 w-full absolute xsPhone:top-[2vh] tablet:top-0  tablet:pt-[71px] tablet:pb-6 laptop:bg-light_text dark:laptop:bg-black"
+      aria-label="Main navigation"
+      className="z-50 w-full absolute xsPhone:top-[2vh] tablet:top-0 tablet:pt-[71px] tablet:pb-6 laptop:bg-light_text dark:laptop:bg-black"
     >
       <div className="flex justify-center items-center w-full h-full transition-transform transform hover:scale-95">
         <div
@@ -30,22 +31,31 @@ const Navbar = ({ project, setProject }: NavbarProps) => {
         >
           <ThemeSwitcher />
 
-          <div
-            onClick={handleComponent}
+          <Link
+            href={isProjectsPage ? "/" : "/projects"}
             className={`cursor-pointer group w-[160px] h-[40px] bg-light_bg dark:bg-grey_text justify-center items-center rounded-full flex gap-1`}
+            aria-label={
+              isProjectsPage ? "Go to home page" : "View projects"
+            }
           >
-            {project ? (
-              <FaHome className="w-[34px] h-[20px] text-grey_text dark:text-light_text group-hover:text-green_text" />
+            {isProjectsPage ? (
+              <FaHome
+                aria-hidden="true"
+                className="w-[34px] h-[20px] text-grey_text dark:text-light_text group-hover:text-green_text"
+              />
             ) : (
-              <FaCode className="w-[34px] h-[20px] text-grey_text dark:text-light_text group-hover:text-green_text" />
+              <FaCode
+                aria-hidden="true"
+                className="w-[34px] h-[20px] text-grey_text dark:text-light_text group-hover:text-green_text"
+              />
             )}
             <span className="text-full text-[20px] dark:text-light_text text-grey_text font-main-font uppercase group-hover:text-green_text">
-              {project ? "Home" : "Projects"}
+              {isProjectsPage ? "Home" : "Projects"}
             </span>
-          </div>
+          </Link>
         </div>
       </div>
-    </motion.div>
+    </motion.nav>
   );
 };
 
