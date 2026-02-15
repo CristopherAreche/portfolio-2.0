@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 interface SkillIconProps {
@@ -16,6 +16,20 @@ const SkillIcon = ({
   needsDarkBg = false,
 }: SkillIconProps) => {
   const [showName, setShowName] = useState(false);
+  const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const clearHideTimer = () => {
+    if (hideTimerRef.current) {
+      clearTimeout(hideTimerRef.current);
+      hideTimerRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      clearHideTimer();
+    };
+  }, []);
 
   return (
     <button
@@ -23,11 +37,33 @@ const SkillIcon = ({
       className="relative flex items-center justify-center rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green_text"
       aria-label={name}
       aria-pressed={showName}
-      onMouseEnter={() => setShowName(true)}
-      onMouseLeave={() => setShowName(false)}
-      onFocus={() => setShowName(true)}
-      onBlur={() => setShowName(false)}
-      onClick={() => setShowName((prev) => !prev)}
+      onMouseEnter={() => {
+        clearHideTimer();
+        setShowName(true);
+      }}
+      onMouseLeave={() => {
+        clearHideTimer();
+        setShowName(false);
+      }}
+      onFocus={() => {
+        clearHideTimer();
+        setShowName(true);
+      }}
+      onBlur={() => {
+        clearHideTimer();
+        setShowName(false);
+      }}
+      onPointerDown={(event) => {
+        if (event.pointerType !== "touch") return;
+
+        clearHideTimer();
+        setShowName(true);
+
+        hideTimerRef.current = setTimeout(() => {
+          setShowName(false);
+          hideTimerRef.current = null;
+        }, 1400);
+      }}
     >
       {showName && (
         <span className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap bg-grey_text dark:bg-gray-700 text-white text-[11px] px-2 py-0.5 rounded font-main-font z-10 pointer-events-none">

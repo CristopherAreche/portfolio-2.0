@@ -15,6 +15,8 @@ export interface TechItem {
   image: string;
 }
 
+export type LanguageCode = "en" | "es";
+
 export type ExternalUrl = `https://${string}` | `http://${string}`;
 
 export type ProjectDeploymentStatus = "live" | "in-progress";
@@ -35,6 +37,7 @@ export interface Project {
   frontend_tech: TechItem[];
   backend_tech?: TechItem[];
   description: string;
+  descriptionEs: string;
   deployment: ProjectDeployment;
   sourceCode: ExternalUrl;
 }

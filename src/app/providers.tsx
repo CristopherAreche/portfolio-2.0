@@ -1,5 +1,6 @@
 "use client";
 import { ThemeProvider } from "next-themes";
+import { LanguageProvider } from "./language-provider";
 
 interface ProvidersProps {
   children: React.ReactNode;
@@ -13,7 +14,7 @@ export default function Providers({ children }: ProvidersProps) {
       enableSystem
       disableTransitionOnChange
     >
-      {children}
+      <LanguageProvider>{children}</LanguageProvider>
     </ThemeProvider>
   );
 }

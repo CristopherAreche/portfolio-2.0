@@ -9,29 +9,31 @@ import toast from "react-hot-toast";
 import { motion, useReducedMotion } from "framer-motion";
 import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/utils/constants";
 import SkillIcon from "./SkillIcon";
+import { useLanguage } from "@/app/language-provider";
 
 const DARK_ICONS = ["nextjs"];
 
 const Hero = () => {
   const [isCopied, setIsCopied] = useState(false);
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useLanguage();
 
   const handleCopyClick = async () => {
     try {
       await clipboard(CONTACT_EMAIL);
       setIsCopied(true);
-      toast.success("Email copied to clipboard!");
+      toast.success(t.hero.copySuccessToast);
       setTimeout(() => {
         setIsCopied(false);
       }, 2000);
     } catch {
-      toast.error("Failed to copy email. Please try manually.");
+      toast.error(t.hero.copyErrorToast);
     }
   };
 
   return (
     <section
-      aria-label="About me"
+      aria-label={t.hero.sectionLabel}
       className="w-full max-w-full overflow-x-hidden pt-[2em] pb-[4em] laptop:pt-0 laptop:pb-0 phone:w-full phone:items-center laptop:items-start laptop:w-[1100px] laptop:h-[550px] tablet:w-[500px] h-full tablet:mt-[140px] mx-[15px] scrollbar-hide flex phone:flex-col-reverse items-center gap-14 phone:h-auto phone:gap-0 phone:justify-between laptop:flex-row laptop:justify-between justify-center"
     >
       {/* Left */}
@@ -54,10 +56,10 @@ const Hero = () => {
           className="flex flex-col phone:justify-center phone:items-center laptop:items-start"
         >
           <div className="xsPhone:px-[15px] xsPhone:text-center laptop:px-0 font-main-font font-normal xsPhone:text-[30px] phone:text-[38px] mb-4 text-start text-grey_text dark:text-dark_mode_text">
-            Hi, I&apos;M <span className="text-[#53E767]">Cristopher</span>
+            {t.hero.greeting} <span className="text-[#53E767]">Cristopher</span>
           </div>
           <h1 className="xsPhone:px-[15px] text-center laptop:px-0 tablet:text-center laptop:text-start uppercase font-main-font font-normal xsPhone:text-[30px] phone:text-[38px] text-grey_text dark:text-dark_mode_text">
-            A Software Engineer
+            {t.hero.role}
           </h1>
         </motion.div>
         {/* Description */}
@@ -77,14 +79,10 @@ const Hero = () => {
           }
           className="xsPhone:px-[15px] laptop:text-start laptop:px-0 phone:text-[16px] tablet:text-[20px] text-grey_text dark:text-dark_mode_text phone:text-center"
         >
-          driven by the desire to bring ideas to life on the internet. Over
-          time, I&apos;ve expanded my expertise to designing and building
-          scalable applications, always aiming to create solutions that are both
-          reliable and intuitive.
+          {t.hero.descriptionFirst}
           <br />
-          <br />I enjoy the challenge of combining clean architecture,
-          performance, and user-focused design to deliver meaningful digital
-          experiences.
+          <br />
+          {t.hero.descriptionSecond}
         </motion.p>
         {/* Tech Stack */}
         <div className="flex flex-col xsPhone:items-start laptop:items-start gap-3 xsPhone:px-[15px] laptop:px-0">
@@ -107,7 +105,7 @@ const Hero = () => {
           >
             <div className="flex tablet:gap-4 xsPhone:gap-2">
               <p className="flex uppercase font-main-font xsPhone:text-[12px] phone:text-[16px] tablet:text-[20px] text-grey_text dark:text-dark_mode_text">
-                Front<span className="hidden tablet:block">-end</span>
+                {t.hero.frontend}
               </p>
               <p className="font-main-font xsPhone:text-[12px] phone:text-[16px] tablet:text-[20px] text-grey_text mr-6 dark:text-dark_mode_text">
                 |
@@ -142,7 +140,7 @@ const Hero = () => {
           >
             <div className="flex tablet:gap-4 xsPhone:gap-2">
               <p className="flex uppercase font-main-font xsPhone:text-[12px] phone:text-[16px] tablet:text-[20px] text-grey_text dark:text-dark_mode_text">
-                Back<span className="hidden tablet:block">-end</span>
+                {t.hero.backend}
               </p>
               <p className="font-main-font xsPhone:text-[12px] phone:text-[16px] tablet:text-[20px] text-grey_text mr-6 dark:text-dark_mode_text">
                 |
@@ -180,7 +178,7 @@ const Hero = () => {
           >
             <div className="flex tablet:gap-4 xsPhone:gap-2">
               <p className="flex uppercase font-main-font xsPhone:text-[12px] phone:text-[16px] tablet:text-[20px] text-grey_text dark:text-dark_mode_text">
-                Tools
+                {t.hero.tools}
               </p>
               <p className="font-main-font xsPhone:text-[12px] phone:text-[16px] tablet:text-[20px] text-grey_text mr-6 dark:text-dark_mode_text">
                 |
@@ -222,7 +220,7 @@ const Hero = () => {
                 className="w-5 h-5 text-center dark:text-dark_mode_text"
               />
               <p className="font-main-font text-[20px] dark:text-dark_mode_text">
-                RESUME / CV
+                {t.hero.resume}
               </p>
             </Link>
           </motion.div>
@@ -245,7 +243,9 @@ const Hero = () => {
             <button
               type="button"
               onClick={handleCopyClick}
-              aria-label={isCopied ? "Email copied" : "Copy email to clipboard"}
+              aria-label={
+                isCopied ? t.hero.emailCopiedAria : t.hero.copyEmailAria
+              }
               className="flex px-1 items-center justify-start gap-1 rounded-lg cursor-pointer transition-colors bg-transparent shadow-none"
             >
               <FaCopy
@@ -253,7 +253,7 @@ const Hero = () => {
                 className="w-5 h-5 text-center dark:text-dark_mode_text hover:text-[#53E767] hover:dark:text-[#53E767]"
               />
               <span className="font-main-font text-[20px] uppercase dark:text-dark_mode_text">
-                {isCopied ? "Copied!" : "Email"}
+                {isCopied ? t.hero.copied : t.hero.email}
               </span>
             </button>
           </motion.div>
@@ -316,7 +316,7 @@ const Hero = () => {
                   target="_blank"
                   href={LINKEDIN_URL}
                   rel="noopener noreferrer"
-                  aria-label="Visit LinkedIn profile"
+                  aria-label={t.hero.linkedinAria}
                 >
                   <Image
                     src="/assets/linkedin.svg"
@@ -374,7 +374,7 @@ const Hero = () => {
                   target="_blank"
                   href={GITHUB_URL}
                   rel="noopener noreferrer"
-                  aria-label="Visit GitHub profile"
+                  aria-label={t.hero.githubAria}
                 >
                   <Image
                     src="/assets/github.svg"
