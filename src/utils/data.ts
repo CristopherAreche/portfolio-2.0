@@ -51,7 +51,7 @@ export const projects: Project[] = [
       "Elevate your business management with this amazing CRM project, the all-in-one solution for sales, profiles, inventory, purchases, and VIP customer engagement. Streamline your operations and take control of your business success effortlessly.",
     descriptionEs:
       "Potencia la gestión de tu negocio con este CRM todo en uno para ventas, perfiles, inventario, compras y fidelización de clientes VIP. Optimiza tu operación y toma control del crecimiento de forma simple.",
-    deployment: { status: "live", url: "https://crm-2-mocha.vercel.app/" },
+    deployment: { status: "live", url: "https://crm-client-rose-six.vercel.app/" },
     sourceCode: "https://github.com/CristopherAreche/CRM",
   },
   {
